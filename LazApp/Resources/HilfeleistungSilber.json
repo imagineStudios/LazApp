@@ -1,0 +1,339 @@
+{
+  "Name": "Hilfeleistung Silber",
+  "TimeLines": [
+    {
+      "Name": "AT",
+      "Quests": [
+        {
+          "Name": "Zugang",
+          "Duration": 120,
+          "Requires": [ "GF|1. Befehl AT" ],
+          "Command": "Zur Menschenrettung mit Gurtmesser und hydraulischem Rettungsgerät zum Pkw vor!",
+          "Steps": [
+            {
+              "Description": "Der Angriffstrupp bringt das hydraulische Rettungsgerät in Stellung.",
+              "OnlyIf": [ "Rettungsgeraet.Hydraulisch" ]
+            },
+            {
+              "Description": "Der Angriffstrupp holt Gurtmesser und Handscheinwerfer"
+            },
+            {
+              "Description": "und den hydraulischen Spreizer oder das hydraulische Schneidgerät und kuppelt die Schläuche zusammen.",
+              "OnlyIf": [ "Rettungsgeraet.Hydraulisch" ]
+            },
+            {
+              "Description": "Der Angriffstrupp beginnt mit dem Öffnen der Fahrertür. (Betätigen des Übungsmodells mittels hydraulischem Spreizer oder Trennen des Rohres/Rundeisens mittels hydraulischem Schneidgerät – siehe Anlage 10. Nach dem Öffnen der Tür trennt der Angriffstrupp den Sicherheitsgurt durch Öffnen des Gurtverschlusses und kontrolliert, ob die Kfz-Zündanlage ausgeschaltet ist."
+            }
+          ],
+          "Mistakes": [
+              {
+                "Description": "Angriffstrupp vergisst Einsatzgerät (Gurtmesser, Handscheinwerfer, hydraulisches Rettungsgerät)",
+                "Points": 5,
+                "IsMulti": true
+              },
+              {
+                "Description": "Angriffstrupp vergisst Klappvisier am Helm zu befestigen (sofern nicht vorhanden)",
+                "Points": 5,
+                "IsMulti": false
+              },
+              {
+                "Description": "Angriffstrupp vergisst Klappvisier zu schließen",
+                "Points": 3,
+                "IsMulti": true
+              },
+              {
+                "Description": "Vergisst die hydraulischen Rettungsgeräte zuerst in Stellung zu bringen",
+                "Points": 5,
+                "IsMulti": false
+              },
+              {
+                "Description": "Öffnet Spreizer nicht bis zum Endanschlag des Übungsmodells (Ausnahme: Überdruckventil spricht an) ",
+                "Points": 5,
+                "IsMulti": false
+              },
+              {
+                "Description": "Setzt das Schneidgerät nicht im rechten Winkel an",
+                "Points": 5,
+                "IsMulti": false
+              },
+              {
+                "Description": "Angriffstrupp arbeitet ohne Feuerwehr-Schutzhandschuhe",
+                "Points": 3,
+                "IsMulti": true
+              },
+              {
+                "Description": "Nimmt den Spreizer mit anliegenden Spreizerspitzen außer Betrieb (Spreizerspitzen sollen ca. 5 mm auseinander stehen)",
+                "Points": 5,
+                "IsMulti": false
+              },
+              {
+                "Description": "Kontrolliert nicht, ob die Kfz-Zündanlage ausgeschaltet ist",
+                "Points": 3,
+                "IsMulti": false
+              },
+              {
+                "Description": "Vergisst den Gurtverschluss zu öffnen",
+                "Points": 3,
+                "IsMulti": false
+              }
+            ]
+        },
+        {
+          "Name": "Retten",
+          "Duration": 90,
+          "Requires": [ "GF|2. Befehl WT" ],
+          "Steps": [
+            {
+              "Description": "Der AT rettet mit Unterstützung des WT die verletzte Person und legt sie auf die Krankentrage. Das Öffnen des Gurtverschlusses und die Kontrolle der Zündanlage sind so durchzuführen, dass der Kopf des Retters nicht in den Auslösebereich des Airbags kommt. "
+            }
+          ],
+          "Mistakes": [
+            {
+              "Description": "Vergisst bei den Rettungsmaßnahmen Einmalhandschuhe unter die Feuerwehr-Schutzhandschuhe anzuziehen",
+              "Points": 3,
+              "IsMulti": true
+            },
+            {
+              "Description": "Beginnt mit der Rettung des Verletzten, bevor der Wassertrupp zur Unterstützung bereit steht",
+              "Points": 5,
+              "IsMulti": false
+            },
+            {
+              "Description": "Legt den Verletzten nicht auf die bereitgestellte Krankentrage",
+              "Points": 5,
+              "IsMulti": false
+            }
+          ]
+        },
+        {
+          "Name": "Anbinden",
+          "Duration": 200,
+          "Requires": [ "GF|2. Befehl AT" ],
+          "Mistakes": [
+            {
+              "Description": "Bindet die Feuerwehrgeräte nicht ordnungsgemäß in die Feuerwehrleine ein",
+              "Points": 5,
+              "IsMulti": true
+            },
+            {
+              "Description": "Mastwurf am Auszugsseil der Schiebleiter (bzw. Leine an Steckleiter) nicht unter Spannung gesichert",
+              "Points": 5,
+              "IsMulti": false
+            },
+            {
+              "Description": "Beginnt das Einbinden der Feuerwehrgeräte mit dem Leinenanfang/-ende",
+              "Points": 3,
+              "IsMulti": true
+            }
+          ]
+        }
+      ],
+      "Mistakes": [
+        {
+          "Description": "Angriffstruppführer wiederholt Befehle bzw. Kommandos nicht",
+          "Points": 3,
+          "IsMulti": true
+        },
+        {
+          "Description": "Nichtbeachtung eines Befehls",
+          "Points": 10,
+          "IsMulti": false
+        },
+        {
+          "Description": "Angriffstruppführer wiederholt Befehle unvollständig",
+          "Points": 2,
+          "IsMulti": true
+        },
+        {
+          "Description": "Angriffstrupp geht ohne Befehl zum Einsatz vor",
+          "Points": 5,
+          "IsMulti": false
+        },
+        {
+          "Description": "Sprechen während des Antretens",
+          "Points": 3,
+          "IsMulti": false
+        },
+        {
+          "Description": "Sprechen während des Übungsablaufes",
+          "Points": 3,
+          "IsMulti": false
+        },
+        {
+          "Description": "Sprechen während der Übung mit den Schiedsrichtern oder mit nicht zur Gruppe gehörenden Personen",
+          "Points": 10,
+          "IsMulti": false
+        },
+        {
+          "Description": "Angriffstrupp rennt während der Leistungsübung",
+          "Points": 3,
+          "IsMulti": true
+        }
+      ]
+    },
+    {
+      "Name": "WT",
+      "Quests": [
+        {
+          "Name": "Absichern",
+          "Duration": 60,
+          "Requires": [ "GF|1. Befehl WT" ],
+          "Command": "Zum beidseitigen Absichern der Einsatzstelle mit Verkehrswarngerät vor!",
+          "Report": "Einsatzstelle abgesichert!",
+          "Steps": [
+            {
+              "Description": "Der WT rüstet er sich mit Warndreiecken und -leuchten aus und stellt diese eingeschaltet an den gekennzeichneten Stellen ab. Er geht anschließend geschlossen zum Gruppenführer."
+            }
+          ]
+        },
+        {
+          "Name": "Retten",
+          "Duration": 90,
+          "Requires": [ "GF|2. Befehl WT", "AT|Zugang" ],
+          "Command": "Zur Unterstützung des Angriffstrupps mit Sanitätsgerät zum Pkw vor!",
+          "Steps": [
+            {
+              "Description":  "Der Wassertrupp holt aus dem Fahrzeug Krankentrage, Verbandkasten (oder entsprechenden Rucksack/entsprechende Tasche) und Krankenhausdecke (Wolldecke), bringt diese in Bereitstellung und unterstützt den Angriffstrupp bei der Rettung des Verletzten aus dem Fahrzeug."
+            }
+          ]
+        },
+        {
+          "Name": "Betreuen",
+          "Duration": 200,
+          "Requires": [ "GF|3. Befehl WT" ],
+          "Command": "Verletzten Fahrer aus dem Gefahrenbereich bringen, Schocklagerung vornehmen und Betreuung bis zum Eintreffen des Rettungsdienstes übernehmen!",
+          "Report": "Verletzte Person an Rettungsdienst übergeben!",
+          "Steps": [
+            {
+              "Description": "Der Wassertrupp trägt die verletzte Person zum gekennzeichneten Platz (siehe Anlage 7). Er unterbaut das Fußteil der Krankentrage um ca. 25 cm. Anschließend kontrolliert er die Vitalfunktionen und legt der verletzten Person die Krankenhausdecke über. Der Verbandkasten ist zum gekennzeichneten Platz mitzunehmen. Nach der Versorgung der Person sagt der Schiedsrichter Nr. 3, dass Notarzt und Rettungswagen eingetroffen sind."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "ST",
+      "Quests": [
+        {
+          "Name": "Unterstützen",
+          "Duration": 60,
+          "Requires": [ "GF|1. Befehl AT" ],
+          "Report": "Schlauchtrupp einsatzbereit",
+          "Steps": [
+            {
+              "Description": "Der ST brint mit dem Maschinisten und Melder zusammen den Stromerzeuger in Stellung (siehe Anlage 7).",
+              "OnlyIf": [ "Stromerzeuger.MussEntnommenWerden" ]
+            },
+            {
+              "Description": "Er verlegt er die elektrische Leitung vom Stromerzeuger zum Hydraulikaggregat (falls erforderlich) und schließt dieses an.",
+              "OnlyIf": [ "Rettungsgeraet.Elektrisch" ]
+            },
+            {
+              "Description": "Er bringt das Hydraulikaggregat in Stellung und setzt es in Betrieb.",
+              "OnlyIf": [ "Rettungsgeraet.Hydraulisch" ]
+            }
+          ]
+        },
+        {
+          "Name": "Beleuchten",
+          "Duration": 400,
+          "Requires": [ "GF|1. Befehl ST" ]
+        }
+      ]
+    },
+    {
+      "Name": "Melder",
+      "Quests": [
+        {
+          "Name": "Unterstützen",
+          "Duration": 30,
+          "Requires": [ "GF|1. Befehl AT" ],
+          "Steps": [
+            {
+              "Description": "Der Melder brint mit dem Maschinisten und dem ST zusammen den Stromerzeuger in Stellung (siehe Anlage 7).",
+              "OnlyIf": [ "Stromerzeuger.MussEntnommenWerden" ]
+            }
+          ]
+        },
+        {
+          "Name": "Brandschutz",
+          "Duration": 200,
+          "Command": "Zum Sicherstellen des Brandschutzes mit Pulverlöscher/Schnellangriff Wasser zum Pkw vor!",
+          "Requires": [ "GF|1. Befehl Melder" ],
+          "Steps": [
+            {
+              "Description": "Der Melder geht er mit dem Pulverlöscher (der Pulverlöscher wird nicht in Betrieb gesetzt) beziehungsweise mit dem Schnellangriff Wasser, zum Pkw vor und übernimmt den Brandschutz."
+            }
+          ]
+        },
+        {
+          "Name": "3. Lagemeldung",
+          "Duration": 30,
+          "Requires": [ "GF|2. Befehl Melder" ]
+        }
+      ]
+    },
+    {
+      "Name": "GF",
+      "Quests": [
+        {
+          "Name": "1. Befehl AT",
+          "Command": "Angriffstrupp zur Menschenrettung mit Gurtmesser und hydraulischem Rettungsgerät zum Pkw vor!",
+          "Duration": 10
+        },
+        {
+          "Name": "1. Befehl WT",
+          "Command": "Wassertrupp zum beidseitigen Absichern der Einsatzstelle mit Verkehrswarngerät vor!",
+          "Duration": 10
+        },
+        {
+          "Name": "1. Befehl Melder",
+          "Command": "Melder zum Sicherstellen des Brandschutzes mit Pulverlöscher/Schnellangriff Wasser zum Pkw vor!",
+          "Duration": 10,
+          "Requires": [ "Melder|Unterstützen" ]
+        },
+        {
+          "Name": "1. Lagemeldung",
+          "Command": "Leitstelle ... von Florian ... kommen!; 1. Lagemeldung: Verkehrsunfall auf der Landstraße A-Dorf nach B-Dorf, durch Sturm umgestürzter Baum liegt auf Pkw, eine Person eingeklemmt, die Person ist ansprechbar, Menschenrettung eingeleitet, ein Notarzt, ein Rettungswagen und ein Rüstwagen (bei Fahrzeugen ohne eingebauten Löschwasserbehälter zusätzlich ein TLF) zur Einsatzstelle!",
+          "Duration": 30
+        },
+        {
+          "Name": "Erkundung",
+          "Duration": 30
+        },
+        {
+          "Name": "1. Befehl ST",
+          "Command": "Schlauchtrupp Beleuchtungsgeräte in Stellung bringen!",
+          "Duration": 10
+        },
+        {
+          "Name": "2. Befehl WT",
+          "Command": "Wassertrupp zur Unterstützung des Angriffstrupps mit Sanitätsgerät zum Pkw vor!",
+          "Duration": 10,
+          "Requires": [ "WT|Absichern" ]
+        },
+        {
+          "Name": "3. Befehl WT",
+          "Command": "Wassertrupp: Verletzten Fahrer aus dem Gefahrenbereich bringen, Schocklagerung vornehmen und Betreuung bis zum Eintreffen des Rettungsdienstes übernehmen!",
+          "Duration": 10,
+          "Requires": [ "WT|Retten" ]
+        },
+        {
+          "Name": "2. Befehl AT",
+          "Duration": 10
+        },
+        {
+          "Name": "2. Lagemeldung",
+          "Command": "Leitstelle … von Florian … kommen!; 2. Lagemeldung: Eingeklemmte Person aus Pkw gerettet; ein Kleinlöschgerät/Schnellangriff Wasser im Einsatz!",
+          "Duration": 10
+        },
+        {
+          "Name": "2. Befehl Melder",
+          "Command": "Melder 3. Lagemeldung: Verletzten Fahrer an Rettungsdienst übergeben, alle Feuerwehrgeräte mit Feuerwehrleinen befestigt, der von der Polizei angeforderte Abschleppwagen noch nicht eingetroffen!",
+          "Duration": 10,
+          "Requires": [ "AT|Anbinden", "WT|Betreuen" ]
+        }
+      ]
+    }
+  ]
+}

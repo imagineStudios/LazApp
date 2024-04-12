@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:conv="clr-namespace:LazApp.Converters"
+             x:Class="LazApp.Views.GanttPage"
+             Title="{Binding Name}">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <CollectionView ItemsSource="{Binding TimeLines}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border HeightRequest="100" WidthRequest="70" Padding="10">
+                        <Label Text="{Binding Name}" VerticalOptions="Center" HorizontalOptions="End"/>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <CollectionView ItemsSource="{Binding TimeLines}" Grid.Column="1">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <CollectionView ItemsSource="{Binding Quests}" ItemsLayout="HorizontalList" HeightRequest="100">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Border Padding="{Binding Pause, Converter={conv:MultiplicationConverter}, ConverterParameter=2}" StrokeThickness="0" HeightRequest="100">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="3*"/>
+                                            <RowDefinition Height="5*"/>
+                                            <RowDefinition Height="3*"/>
+                                        </Grid.RowDefinitions>
+                                        <Path Data="M 2 0 C 0.9 0 0 0.9 0 2 L 0 14 L 0 20 C 0 20 1 18 2 17 C 2.9 16 4.75 16 5 16 L 5 16 L 18 16 C 19 16 20 15 20 14 L 20 2 C 20 0.9 19 0 18 0 L 2 0 z" Fill="DarkOrange" ToolTipProperties.Text="{Binding Command}" VerticalOptions="End">
+                                            <Path.Style>
+                                                <Style TargetType="Path">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Command}" Value="{x:Null}" TargetType="Path">
+                                                            <Setter Property="IsVisible" Value="False"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Path.Style>
+                                        </Path>
+                                        <Path Data="M 2 0 C 0.9 0 0 0.9 0 2 L 0 14 L 0 20 C 0 20 1 18 2 17 C 2.9 16 4.75 16 5 16 L 5 16 L 18 16 C 19 16 20 15 20 14 L 20 2 C 20 0.9 19 0 18 0 L 2 0 z" Fill="DarkOrange" ToolTipProperties.Text="{Binding Report}" VerticalOptions="End" HorizontalOptions="End">
+                                            <Path.Style>
+                                                <Style TargetType="Path">
+                                                    <Style.Triggers>
+                                                        <DataTrigger Binding="{Binding Report}" Value="{x:Null}" TargetType="Path">
+                                                            <Setter Property="IsVisible" Value="False"/>
+                                                        </DataTrigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </Path.Style>
+                                        </Path>
+                                        <Border Grid.Row="1" StrokeThickness="0" Padding="0.5" WidthRequest="{Binding Duration, Converter={conv:MultiplicationConverter}, ConverterParameter=2}">
+                                            <Button Text="{Binding Name}"/>
+                                            <!--<Border Background="#203040" StrokeThickness="0">
+                                                <Label Text="{Binding Name}" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                            </Border>-->
+                                        </Border>
+                                        <CollectionView Grid.Row="2" ItemsLayout="HorizontalList" ItemsSource="{Binding Mistakes}" HorizontalOptions="Start">
+                                            <CollectionView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Border Background="DarkRed" HeightRequest="24" WidthRequest="24" Margin="2">
+                                                        <Label Text="{Binding PointsMulti}" HorizontalOptions="Center" VerticalOptions="Center" ToolTipProperties.Text="{Binding Description}"/>
+                                                    </Border>
+                                                </DataTemplate>
+                                            </CollectionView.ItemTemplate>
+                                        </CollectionView>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

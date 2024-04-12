@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LazApp.Views.MainPage"
+             Title="MainPage">
+    <VerticalStackLayout Spacing="40">
+        <Button Text="Bronze" Clicked="LevelButton_Clicked" WidthRequest="100" HeightRequest="100" Background="#DA5A00"/>
+        <Button Text="Silber" Clicked="LevelButton_Clicked" WidthRequest="100" HeightRequest="100" Background="#AAAAAA"/>
+        <Button Text="Gold" Clicked="LevelButton_Clicked" WidthRequest="100" HeightRequest="100" Background="#DAAA00"/>
+        <CollectionView ItemsSource="{Binding Test}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <CollectionView ItemsSource="{Binding }" ItemsLayout="HorizontalList">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Label Text="{Binding }" Margin="10"/>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

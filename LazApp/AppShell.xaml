@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="LazApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:LazApp"
+    xmlns:views="clr-namespace:LazApp.Views"
+    Title="LazApp">
+    <ShellContent Title="Start" ContentTemplate="{DataTemplate views:MainPage}"/>
+    <!--<FlyoutItem Title="Silber" Route="silver">
+        <ShellContent Title="Home"
+                ContentTemplate="{DataTemplate views:GanttPage}"
+                Route="MainPage1" />
+        <ShellContent Title="Home2"
+                ContentTemplate="{DataTemplate views:MainPage}"
+                Route="MainPage2" />
+    </FlyoutItem>
+    <FlyoutItem Title="About">
+        <ShellContent
+            ContentTemplate="{DataTemplate views:SettingsPage}"
+            Route="settings"/>
+    </FlyoutItem>-->
+    <!--<FlyoutItem Route="animals">
+        <ShellContent 
+            Title="Home2"
+            ContentTemplate="{DataTemplate views:MainPage}"
+            Route="MainPage" />
+    </FlyoutItem>
+    <ShellContent 
+        Title="About"
+        ContentTemplate="{DataTemplate views:MainPage}"
+        Route="MainPage" />-->
+</Shell>
