@@ -5,10 +5,12 @@ namespace LazApp.Views;
 [QueryProperty(nameof(Level), "level")]
 public partial class GanttPage : ContentPage
 {
+    private readonly AssetService assetService;
     private string? level;
 
-    public GanttPage()
+    public GanttPage(AssetService assetService)
 	{
+        this.assetService = assetService;
 		InitializeComponent();
 	}
 
@@ -18,7 +20,7 @@ public partial class GanttPage : ContentPage
         set
         {
             level = value;
-            BindingContext = new GanttPageViewModel(level);
+            BindingContext = new GanttPageViewModel(level, assetService);
         }
     }
 }

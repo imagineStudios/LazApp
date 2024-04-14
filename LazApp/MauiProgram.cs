@@ -1,6 +1,8 @@
-﻿using LazApp.ViewModels;
+﻿using LazApp.Models;
+using LazApp.ViewModels;
 using LazApp.Views;
 using Microsoft.Extensions.Logging;
+using System.Text.Json;
 
 namespace LazApp
 {
@@ -17,8 +19,10 @@ namespace LazApp
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
+            builder.Services.AddSingleton(typeof(AssetService));
             builder.Services.AddSingleton(s => ActivatorUtilities.CreateInstance<GanttPageViewModel>(s));
             builder.Services.AddSingleton(typeof(GanttPage));
+            builder.Services.AddSingleton(typeof(MainPage));
 #if DEBUG
     		builder.Logging.AddDebug();
 #endif

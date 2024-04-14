@@ -2,7 +2,7 @@ namespace LazApp.Views;
 
 public partial class MainPage : ContentPage
 {
-	public MainPage()
+	public MainPage(AssetService a)
 	{
 		InitializeComponent();
 

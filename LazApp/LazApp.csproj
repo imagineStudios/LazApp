@@ -81,12 +81,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Update="Resources\HilfeleistungSilber.json">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </None>
-	</ItemGroup>
-
-	<ItemGroup>
 	  <Folder Include="Converters\" />
 	</ItemGroup>
 

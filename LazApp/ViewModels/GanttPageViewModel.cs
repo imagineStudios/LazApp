@@ -1,4 +1,5 @@
 ﻿using LazApp.Models;
+using System.Reflection;
 using System.Text.Json;
 
 namespace LazApp.ViewModels
@@ -9,19 +10,11 @@ namespace LazApp.ViewModels
         private double zoom = 1.0;
         private QuestViewModel? selectedQuest;
 
-        public GanttPageViewModel(string? level)
+        public GanttPageViewModel(string? level, AssetService assetService)
         {
-            var filename = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", $"Hilfeleistung{level ?? string.Empty}.json");
-            if (File.Exists(filename))
-            {
-                var json = File.ReadAllText(filename);
-                scenario = JsonSerializer.Deserialize<Scenario>(json);
-                if (scenario != null)
-                {
-                    scenario.Init();
-                    TimeLines = scenario.TimeLines.Select(tl => new TimeLineViewModel(tl)).ToList();
-                }
-            }
+            scenario = assetService[level];
+            scenario.Init();
+            TimeLines = scenario.TimeLines.Select(tl => new TimeLineViewModel(tl)).ToList();
         }
 
         public string? Name => scenario?.Name;
