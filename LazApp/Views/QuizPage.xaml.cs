@@ -1,11 +1,13 @@
-namespace LAZapp;
+using LazApp.Base;
+using LazApp.ViewModels;
+
+namespace LazApp.Views;
 
 public partial class QuizPage : ContentPage
 {
-	public QuizPage(QuestionRepository repo)
+    public QuizPage(AssetService<Question[]> repo)
 	{
 		InitializeComponent();
-		var questions = repo.GetAll();
-		BindingContext = new QuizViewModel();
+		BindingContext = new QuizViewModel(repo["mannschaft"]);
 	}
 }

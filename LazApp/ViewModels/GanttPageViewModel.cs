@@ -1,6 +1,4 @@
 ﻿using LazApp.Models;
-using System.Reflection;
-using System.Text.Json;
 
 namespace LazApp.ViewModels
 {
@@ -10,9 +8,9 @@ namespace LazApp.ViewModels
         private double zoom = 1.0;
         private QuestViewModel? selectedQuest;
 
-        public GanttPageViewModel(string? level, AssetService assetService)
+        public GanttPageViewModel(Scenario scenario)
         {
-            scenario = assetService[level];
+            this.scenario = scenario;
             scenario.Init();
             TimeLines = scenario.TimeLines.Select(tl => new TimeLineViewModel(tl)).ToList();
         }

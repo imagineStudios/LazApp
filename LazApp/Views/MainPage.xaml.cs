@@ -1,15 +1,15 @@
+using LazApp.Models;
+
 namespace LazApp.Views;
 
 public partial class MainPage : ContentPage
 {
-	public MainPage(AssetService a)
+	public MainPage(AssetService<Scenario> a)
 	{
 		InitializeComponent();
 
         BindingContext = this;
 	}
-
-    public List<List<string>> Test { get; } = [["A", "ABC", "Hallo"], ["A", "ABC", "Hallo"]];
 
     private async void LevelButton_Clicked(object sender, EventArgs e)
     {

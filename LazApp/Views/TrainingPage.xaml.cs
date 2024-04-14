@@ -1,8 +1,8 @@
-namespace LAZapp;
+namespace LazApp.Views;
 
 public partial class TrainingPage : ContentPage
 { 
-	public TrainingPage(QuestionRepository repo, AnswerRepository repo1)
+	public TrainingPage()
 	{
 		InitializeComponent();
 	}

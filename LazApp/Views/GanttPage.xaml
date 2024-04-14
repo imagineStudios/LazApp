@@ -2,7 +2,9 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:conv="clr-namespace:LazApp.Converters"
+             xmlns:vm="clr-namespace:LazApp.ViewModels"
              x:Class="LazApp.Views.GanttPage"
+             x:DataType="vm:GanttPageViewModel"
              Title="{Binding Name}">
     <Grid>
         <Grid.ColumnDefinitions>
@@ -20,10 +22,10 @@
         </CollectionView>
         <CollectionView ItemsSource="{Binding TimeLines}" Grid.Column="1">
             <CollectionView.ItemTemplate>
-                <DataTemplate>
+                <DataTemplate x:DataType="vm:TimeLineViewModel">
                     <CollectionView ItemsSource="{Binding Quests}" ItemsLayout="HorizontalList" HeightRequest="100">
                         <CollectionView.ItemTemplate>
-                            <DataTemplate>
+                            <DataTemplate x:DataType="vm:QuestViewModel">
                                 <Border Padding="{Binding Pause, Converter={conv:MultiplicationConverter}, ConverterParameter=2}" StrokeThickness="0" HeightRequest="100">
                                     <Grid>
                                         <Grid.RowDefinitions>
@@ -61,7 +63,7 @@
                                         </Border>
                                         <CollectionView Grid.Row="2" ItemsLayout="HorizontalList" ItemsSource="{Binding Mistakes}" HorizontalOptions="Start">
                                             <CollectionView.ItemTemplate>
-                                                <DataTemplate>
+                                                <DataTemplate x:DataType="vm:MistakeViewModel">
                                                     <Border Background="DarkRed" HeightRequest="24" WidthRequest="24" Margin="2">
                                                         <Label Text="{Binding PointsMulti}" HorizontalOptions="Center" VerticalOptions="Center" ToolTipProperties.Text="{Binding Description}"/>
                                                     </Border>

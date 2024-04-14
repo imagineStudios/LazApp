@@ -10,8 +10,18 @@ public partial class LevelStartPage : ContentPage
 
     public string? Level { get; set; }
 
-    private async void AblaufButton_Clicked(object sender, EventArgs e)
+    private async void BrandeinsatzButton_Clicked(object sender, EventArgs e)
     {
-        await Shell.Current.GoToAsync($"gantt?level={Level}");
+        await Shell.Current.GoToAsync($"gantt?level={Level}&scenario=Brandeinsatz");
+    }
+
+    private async void HilfeleistungButton_Clicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync($"gantt?level={Level}&scenario=Hilfeleistung");
+    }
+
+    private async void TheorieButton_Clicked(object sender, EventArgs e)
+    {
+        await Shell.Current.GoToAsync($"quiz");
     }
 }

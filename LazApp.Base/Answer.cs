@@ -1,6 +1,6 @@
 ﻿using SQLite;
 
-namespace LAZapp.Base;
+namespace LazApp.Base;
 
 [Table("Answers")]
 public class Answer

@@ -1,7 +1,7 @@
-﻿using LAZapp.Base;
+﻿using LazApp.Base;
 using System.ComponentModel;
 
-namespace LAZapp;
+namespace LazApp.ViewModels;
 
 internal class QuestionViewModel(Question question) : INotifyPropertyChanged
 {

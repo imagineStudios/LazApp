@@ -1,4 +1,4 @@
-﻿namespace LAZapp.Base;
+﻿namespace LazApp.Base;
 
 public interface IRandomItem
 {

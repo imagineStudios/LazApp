@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace LAZapp.Base;
+namespace LazApp.Base;
 
 public class RandomPicker<T>
         where T : IRandomItem

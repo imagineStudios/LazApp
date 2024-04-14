@@ -1,8 +1,8 @@
-﻿using LAZapp.Base;
+﻿using LazApp.Base;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace LAZapp;
+namespace LazApp.ViewModels;
 
 public class AnswerViewModel(Answer answer) : INotifyPropertyChanged
 {

@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
-using LAZapp.Base;
+using LazApp.Base;
 
-namespace LAZapp;
+namespace LazApp.ViewModels;
 
 internal class QuizViewModel : INotifyPropertyChanged
 {
@@ -10,12 +10,12 @@ internal class QuizViewModel : INotifyPropertyChanged
     private int questionIndex;
     private bool isChecked;
 
-    public QuizViewModel()
+    public QuizViewModel(IEnumerable<Question> questions)
     {
+        NewQuiz(questions, 10);
         BackCommand = new Command(PreviousQuestion, () => questionIndex > 0);
-        NextCommand = new Command(NextQuestion, () => questionIndex + 1 < (questions?.Count ?? 0));
+        NextCommand = new Command(NextQuestion, () => questionIndex + 1 < (this.questions?.Count ?? 0));
         CheckQuestionCommand = new Command(CheckQuestion);
-        NewQuiz();
     }
 
     public event PropertyChangedEventHandler? PropertyChanged;
@@ -70,19 +70,12 @@ internal class QuizViewModel : INotifyPropertyChanged
         IsChecked = true;
     }
 
-    private async void NewQuiz()
+    private void NewQuiz(IEnumerable<Question> questions, int count)
     {
-        Question[]? q = null;
-        //using (var client = new LAZapiClient(new Uri("https://localhost:7242")))
-        //{
-        //    q = await client.GetRandomQuestions(5);
-        //}
-
-        if (q == null)
-        {
-            q = new LAZapiReader(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "mannschaft.json")).GetRandomQuestions(5);
-        }
-        questions = q?.Select(questionIndex => new QuestionViewModel(questionIndex)).ToList();
+        this.questions = RandomPicker<ProbabilityDecorator<Question>>
+                .Draw(questions.Select(q => new ProbabilityDecorator<Question>(q)), count)
+                .Select(d => new QuestionViewModel(d.Item))
+                .ToList();
 
         QuestionIndex = 0;
     }

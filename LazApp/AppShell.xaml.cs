@@ -9,6 +9,7 @@ namespace LazApp
             InitializeComponent();
             Routing.RegisterRoute("levelstart", typeof(LevelStartPage));
             Routing.RegisterRoute("gantt", typeof(GanttPage));
+            Routing.RegisterRoute("quiz", typeof(QuizPage));
         }
     }
 }

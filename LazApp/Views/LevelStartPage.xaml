@@ -4,6 +4,8 @@
              x:Class="LazApp.Views.LevelStartPage"
              Title="LevelStartPage">
     <VerticalStackLayout>
-        <Button Text="Ablauf" Clicked="AblaufButton_Clicked" WidthRequest="100" HeightRequest="100"/>
+        <Button Text="Brandeinsatz" Clicked="BrandeinsatzButton_Clicked" WidthRequest="100" HeightRequest="100"/>
+        <Button Text="Hilfeleistung" Clicked="HilfeleistungButton_Clicked" WidthRequest="100" HeightRequest="100"/>
+        <Button Text="Theorie" Clicked="TheorieButton_Clicked" WidthRequest="100" HeightRequest="100"/>
     </VerticalStackLayout>
 </ContentPage>

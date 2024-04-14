@@ -84,4 +84,8 @@
 	  <Folder Include="Converters\" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\LazApp.Base\LazApp.Base.csproj" />
+	</ItemGroup>
+
 </Project>

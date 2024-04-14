@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 
-namespace LAZapp.Base;
+namespace LazApp.Base;
 
 public class Quiz
 {

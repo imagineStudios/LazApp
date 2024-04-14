@@ -1,7 +1,7 @@
 ﻿using SQLite;
 using System.Collections.Generic;
 
-namespace LAZapp.Base;
+namespace LazApp.Base;
 
 public class Question
 {
