@@ -48,6 +48,6 @@ public class RandomPicker<T>
             }
         }
 
-        return list[^1];
+        return list[list.Count - 1];
     }
 }

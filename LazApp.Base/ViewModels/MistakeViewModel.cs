@@ -1,6 +1,6 @@
-﻿using LazApp.Models;
+﻿using LazApp.Base.Models;
 
-namespace LazApp.ViewModels;
+namespace LazApp.Base.ViewModels;
 
 public class MistakeViewModel(Mistake mistake) : ViewModelBase
 {

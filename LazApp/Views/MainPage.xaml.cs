@@ -1,4 +1,4 @@
-using LazApp.Models;
+using LazApp.Base.Models;
 
 namespace LazApp.Views;
 

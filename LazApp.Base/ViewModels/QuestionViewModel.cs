@@ -1,12 +1,11 @@
-﻿using LazApp.Base;
-using System.ComponentModel;
+﻿using LazApp.Base.Models;
+using System.Collections.Generic;
+using System.Linq;
 
-namespace LazApp.ViewModels;
+namespace LazApp.Base.ViewModels;
 
-internal class QuestionViewModel(Question question) : INotifyPropertyChanged
+public class QuestionViewModel(Question question) : ViewModelBase
 {
-    public event PropertyChangedEventHandler? PropertyChanged;
-
     public int Id => question.Id;
 
     public string Text => question.Text;

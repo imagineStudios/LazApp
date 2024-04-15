@@ -1,0 +1,178 @@
+﻿<Window x:Class="LazApp.Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LazApp.Wpf"
+        xmlns:conv="clr-namespace:LazApp.Converters"
+        mc:Ignorable="d"
+        Background="#202030"
+        Foreground="White"
+        Title="MainWindow" Height="450" Width="800">
+    <Window.DataContext>
+        <local:MainWindowViewModel/>
+    </Window.DataContext>
+    <DockPanel>
+        <Border Background="#101020" DockPanel.Dock="Top" >
+            <TextBlock Margin="10" Text="{Binding Scenario.Name}" FontSize="24"/>
+        </Border>
+        <StatusBar DockPanel.Dock="Bottom">
+            <StatusBarItem >
+                <Slider Minimum="1" Maximum="10" Value="{Binding Zoom}" Width="200"/>
+            </StatusBarItem>
+        </StatusBar>
+        <DockPanel DockPanel.Dock="Top">
+            <ItemsControl ItemsSource="{Binding Scenario.TimeLines}">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Height="100" Width="70" Padding="10">
+                            <TextBlock Text="{Binding Name}" VerticalAlignment="Center" HorizontalAlignment="Right" FontWeight="DemiBold"/>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Auto">
+                <Grid>
+                    <ItemsControl ItemsSource="{Binding Ticks}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <DockPanel>
+                                    <DockPanel.Margin>
+                                        <MultiBinding Converter="{conv:MultiplicationConverter}">
+                                            <Binding Path="."/>
+                                            <Binding Path="DataContext.Zoom" RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=Window}"/>
+                                        </MultiBinding>
+                                    </DockPanel.Margin>
+                                    <TextBlock DockPanel.Dock="Bottom" Text="{Binding}" Height="40" Margin="-5,0,0,0"/>
+                                    <Border Background="#40FFFFFF" Width="1" HorizontalAlignment="Left"/>
+                                </DockPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <Grid/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                    </ItemsControl>
+                    
+                    <ItemsControl ItemsSource="{Binding Scenario.TimeLines}" Margin="0,0,0,40">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <DockPanel>
+                                    <ItemsControl ItemsSource="{Binding Quests}">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <Grid Height="100"/>
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid HorizontalAlignment="Left">
+                                                    <Grid.Margin>
+                                                        <MultiBinding Converter="{conv:MultiplicationConverter}">
+                                                            <Binding Path="StartTime"/>
+                                                            <Binding Path="DataContext.Zoom" RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=Window}"/>
+                                                        </MultiBinding>
+                                                    </Grid.Margin>
+                                                    <Grid.Width>
+                                                        <MultiBinding Converter="{conv:MultiplicationConverter}">
+                                                            <Binding Path="Duration"/>
+                                                            <Binding Path="DataContext.Zoom" RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType=Window}"/>
+                                                        </MultiBinding>
+                                                    </Grid.Width>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="30"/>
+                                                        <RowDefinition Height="40"/>
+                                                        <RowDefinition Height="30"/>
+                                                    </Grid.RowDefinitions>
+                                                    <Path Data="M 2 0 C 0.9 0 0 0.9 0 2 L 0 14 L 0 20 C 1.5666465e-16 20 1 18 2 17 C 2.9 16 4.7540855 16 5 16 L 5 16 L 18 16 C 19 16 20 15 20 14 L 20 2 C 20 0.9 19 0 18 0 L 2 0 z" Fill="DarkOrange" ToolTip="{Binding Command}" ToolTipService.InitialShowDelay="500" VerticalAlignment="Bottom">
+                                                        <Path.Style>
+                                                            <Style TargetType="Path">
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding Command}" Value="{x:Null}">
+                                                                        <Setter Property="Visibility" Value="Hidden"/>
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </Path.Style>
+                                                    </Path>
+                                                    <Path Data="M 2 0 C 0.9 0 0 0.9 0 2 L 0 14 L 0 20 C 1.5666465e-16 20 1 18 2 17 C 2.9 16 4.7540855 16 5 16 L 5 16 L 18 16 C 19 16 20 15 20 14 L 20 2 C 20 0.9 19 0 18 0 L 2 0 z" Fill="DarkOrange" HorizontalAlignment="Right" VerticalAlignment="Bottom" ToolTip="{Binding Report}" ToolTipService.InitialShowDelay="500">
+                                                        <Path.RenderTransform>
+                                                            <ScaleTransform ScaleX="-1" CenterX="10"/>
+                                                        </Path.RenderTransform>
+                                                        <Path.Style>
+                                                            <Style TargetType="Path">
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding Report}" Value="{x:Null}">
+                                                                        <Setter Property="Visibility" Value="Hidden"/>
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </Path.Style>
+                                                    </Path>
+                                                    <Button Grid.Row="1" Background="#40FFFFFF" Content="{Binding Name}" HorizontalAlignment="Stretch" BorderThickness="0.5" BorderBrush="Transparent" UseLayoutRounding="true" ToolTip="{Binding Name}" ToolTipService.InitialShowDelay="500"
+                                                      Click="Quest_Click"/>
+                                                    <ItemsControl Grid.Row="2" ItemsSource="{Binding Mistakes}">
+                                                        <ItemsControl.ItemsPanel>
+                                                            <ItemsPanelTemplate>
+                                                                <StackPanel Orientation="Horizontal"/>
+                                                            </ItemsPanelTemplate>
+                                                        </ItemsControl.ItemsPanel>
+                                                        <ItemsControl.ItemTemplate>
+                                                            <DataTemplate>
+                                                                <Border Background="DarkRed" Height="24" Width="24" CornerRadius="12" Margin="2">
+                                                                    <TextBlock Text="{Binding PointsMulti}" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold"
+                                                                         ToolTip="{Binding Description}" ToolTipService.InitialShowDelay="500"/>
+                                                                </Border>
+                                                            </DataTemplate>
+                                                        </ItemsControl.ItemTemplate>
+                                                    </ItemsControl>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </DockPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </Grid>
+            </ScrollViewer>
+        </DockPanel>
+        <Border Background="#20FFFFFF" DataContext="{Binding SelectedQuest}" Padding="10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <DockPanel>
+                    <TextBlock Text="{Binding Name}" FontSize="16" Margin="0,0,0,4" DockPanel.Dock="Top" FontWeight="DemiBold"/>
+                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                        <StackPanel>
+                            <TextBlock Text="Kommando" FontWeight="DemiBold" Margin="0,8,0,4"/>
+                            <TextBlock Text="{Binding Command}" TextWrapping="Wrap"/>
+                            <TextBlock Text="Aufgabe" FontWeight="DemiBold" Margin="0,8,0,4"/>
+                            <TextBlock Text="{Binding Description}" TextWrapping="Wrap"/>
+                            <TextBlock Text="Report" FontWeight="DemiBold" Margin="0,8,0,4"/>
+                            <TextBlock Text="{Binding Report}" TextWrapping="Wrap"/>
+                        </StackPanel>
+                    </ScrollViewer>
+                </DockPanel>
+                <ScrollViewer Grid.Column="2" VerticalScrollBarVisibility="Auto">
+                    <ItemsControl ItemsSource="{Binding Mistakes}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <DockPanel>
+                                    <Border Background="Red" Height="24" Width="24" CornerRadius="12" Margin="8,4" DockPanel.Dock="Right">
+                                        <TextBlock Text="{Binding PointsMulti}" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="DemiBold"/>
+                                    </Border>
+                                    <TextBlock Text="{Binding Description}" TextWrapping="Wrap" VerticalAlignment="Center"/>
+                                </DockPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </Grid>
+        </Border>
+    </DockPanel>
+</Window>

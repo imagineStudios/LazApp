@@ -1,5 +1,5 @@
-using LazApp.Models;
-using LazApp.ViewModels;
+using LazApp.Base.Models;
+using LazApp.Base.ViewModels;
 
 namespace LazApp.Views;
 
@@ -41,6 +41,6 @@ public partial class GanttPage : ContentPage
     {
         var resourceName = $"{ScenarioName}{Level}";
         if (assetService[resourceName] is Scenario s)
-        BindingContext = new GanttPageViewModel(s);
+        BindingContext = new ScenarioViewModel(s);
     }
 }

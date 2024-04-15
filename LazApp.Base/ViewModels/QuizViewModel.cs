@@ -1,10 +1,12 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
 using System.Runtime.CompilerServices;
-using LazApp.Base;
+using LazApp.Base.Models;
 
-namespace LazApp.ViewModels;
+namespace LazApp.Base.ViewModels;
 
-internal class QuizViewModel : INotifyPropertyChanged
+public class QuizViewModel : INotifyPropertyChanged
 {
     private List<QuestionViewModel>? questions;
     private int questionIndex;
@@ -13,8 +15,8 @@ internal class QuizViewModel : INotifyPropertyChanged
     public QuizViewModel(IEnumerable<Question> questions)
     {
         NewQuiz(questions, 10);
-        BackCommand = new Command(PreviousQuestion, () => questionIndex > 0);
-        NextCommand = new Command(NextQuestion, () => questionIndex + 1 < (this.questions?.Count ?? 0));
+        BackCommand = new Command(PreviousQuestion, o => questionIndex > 0);
+        NextCommand = new Command(NextQuestion, o => questionIndex + 1 < (this.questions?.Count ?? 0));
         CheckQuestionCommand = new Command(CheckQuestion);
     }
 
@@ -53,18 +55,18 @@ internal class QuizViewModel : INotifyPropertyChanged
         }
     }
 
-    private void PreviousQuestion()
+    private void PreviousQuestion(object o)
     {
         QuestionIndex--;
     }
 
-    private void NextQuestion()
+    private void NextQuestion(object o)
     {
         QuestionIndex++;
         IsChecked = false;
     }
 
-    private void CheckQuestion()
+    private void CheckQuestion(object o)
     {
         CurrentQuestion?.Check();
         IsChecked = true;

@@ -1,4 +1,4 @@
-﻿namespace LazApp.Models;
+﻿namespace LazApp.Base.Models;
 
 public class Mistake
 {
