@@ -3,36 +3,38 @@ using LazApp.Base.ViewModels;
 using LazApp.Views;
 using Microsoft.Extensions.Logging;
 
-namespace LazApp
+namespace LazApp;
+
+public static class MauiProgram
 {
-    public static class MauiProgram
+    public static MauiApp CreateMauiApp()
     {
-        public static MauiApp CreateMauiApp()
-        {
-            var builder = MauiApp.CreateBuilder();
-            builder
-                .UseMauiApp<App>()
-                .ConfigureFonts(fonts =>
-                {
-                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
+        var builder = MauiApp.CreateBuilder();
+        builder
+            .UseMauiApp<App>()
+            //.UseTimeLine()
+            .ConfigureFonts(fonts =>
+            {
+                fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+            });
 
-            builder.Services.AddSingleton(s =>
-                ActivatorUtilities.CreateInstance<AssetService<Scenario>>(s, "HilfeleistungSilber.json"));
-            builder.Services.AddSingleton(s =>
-                ActivatorUtilities.CreateInstance<AssetService<Question[]>>(s, "mannschaft.json"));
+        builder.Services.AddSingleton(s =>
+            ActivatorUtilities.CreateInstance<AssetService<Scenario>>(s, "HilfeleistungSilber.json"));
+        builder.Services.AddSingleton(s =>
+            ActivatorUtilities.CreateInstance<AssetService<Question[]>>(s, "mannschaft.json"));
 
-            builder.Services.AddSingleton(typeof(ScenarioViewModel));
-            builder.Services.AddSingleton(typeof(GanttPage));
-            builder.Services.AddSingleton(typeof(MainPage));
-            builder.Services.AddSingleton(typeof(TrainingPage));
-            builder.Services.AddSingleton(typeof(QuizPage));
+        builder.Services.AddSingleton(typeof(ScenarioService));
+        builder.Services.AddSingleton(typeof(ScenarioViewModel));
+        builder.Services.AddSingleton(typeof(GanttPage));
+        builder.Services.AddSingleton(typeof(MainPage));
+        builder.Services.AddSingleton(typeof(TrainingPage));
+        builder.Services.AddSingleton(typeof(QuizPage));
+        builder.Services.AddSingleton(typeof(QuestPage));
 #if DEBUG
-    		builder.Logging.AddDebug();
+		builder.Logging.AddDebug();
 #endif
 
-            return builder.Build();
-        }
+        return builder.Build();
     }
 }

@@ -353,7 +353,13 @@
             {
               "Description": "Der ST brint mit dem Maschinisten und Melder zusammen den Stromerzeuger in Stellung (siehe Anlage 7).",
               "OnlyIf": [ "Stromerzeuger.MussEntnommenWerden" ],
-              "Mistakes": []
+              "Mistakes": [
+                {
+                  "Description": "Vergisst den Stromerzeuger in Stellung zu bringen",
+                  "IsMulti": false,
+                  "Points": 5
+                }
+              ]
             },
             {
               "Description": "Er verlegt er die elektrische Leitung vom Stromerzeuger zum Hydraulikaggregat (falls erforderlich) und schließt dieses an.",
@@ -369,14 +375,59 @@
         },
         {
           "Name": "Beleuchten",
-          "Duration": 400,
+          "Command": "Schlauchtrupp Beleuchtungsgeräte in Stellung bringen!",
+          "Report": "Einsatzstelle ausgeleuchtet!",
+          "Duration": 300,
           "Requires": [ "GF|1. Befehl ST" ],
           "Steps": [
             {
-              "Description": "Beleuchten",
-              "Mistakes": []
+              "Description": "Der Schlauchtrupp bringt das Stativ (siehe Übungsbahn techn. Hilfeleistungseinsatz, Anlage 7) mit Aufnahmebrücke und Flutlichtstrahler (beziehungsweise zwei Stative und Breitstrahlscheinwerfer) in Stellung, verlegt die dazugehörigen elektrischen Leitungen und schließt sie an.",
+              "Mistakes": [
+                {
+                  "Description": "Vergisst Einsatzstellenbeleuchtung anzuschließen",
+                  "IsMulti": false,
+                  "Points": 5
+                },
+                {
+                  "Description": "Geht mit den Beleuchtungsgeräten nicht erschütterungsfrei um",
+                  "IsMulti": true,
+                  "Points": 3
+                },
+                {
+                  "Description": "Vergisst die Meldung an den Gruppenführer nach Erledigung des Einsatzauftrags",
+                  "IsMulti": true,
+                  "Points": 2
+                }
+              ]
             }
           ]
+        }
+      ],
+      "Mistakes": [
+        {
+          "Description": "Schlauchtrupp wiederholt Befehle bzw. Kommandos nicht",
+          "Points": 3,
+          "IsMulti": true
+        },
+        {
+          "Description": "Nichtbeachtung eines Befehls",
+          "Points": 10,
+          "IsMulti": false
+        },
+        {
+          "Description": "Schlauchtruppführer wiederholt Befehle unvollständig",
+          "Points": 2,
+          "IsMulti": true
+        },
+        {
+          "Description": "Schlauchtrupptrupp geht ohne Befehl zum Einsatz vor",
+          "Points": 5,
+          "IsMulti": false
+        },
+        {
+          "Description": "Vergisst die Meldung an den Gruppenführer nach der Erledigung des Einsatzauftrages",
+          "Points": 2,
+          "IsMulti": true
         }
       ]
     },
@@ -540,6 +591,78 @@
               "Mistakes": []
             }
           ]
+        }
+      ],
+      "Mistakes": [
+        {
+          "Description": "Gruppenführer liest Befehle oder Lagemeldungen ab (vorbereitet)",
+          "IsMulti": false,
+          "Points": 10
+        },
+        {
+          "Description": "Rüstet sich nicht vollständig mit Handsprechfunkgerät und Handscheinwerfer aus",
+          "IsMulti": true,
+          "Points": 3
+        },
+        {
+          "Description": "Befehle nicht entsprechend der Reihenfolge nach FwDV (Einheit, Auftrag, Mittel, Ziel, Weg) gegeben",
+          "IsMulti": true,
+          "Points": 5
+        },
+        {
+          "Description": "Befehl nicht zum richtigen Zeitpunkt",
+          "IsMulti": true,
+          "Points": 3
+        },
+        {
+          "Description": "Befehle nicht vollständig",
+          "IsMulti": true,
+          "Points": 3
+        },
+        {
+          "Description": "Befehle nicht zielgerichtet",
+          "IsMulti": true,
+          "Points": 3
+        },
+        {
+          "Description": "Befehle nicht lautstark",
+          "IsMulti": true,
+          "Points": 3
+        },
+        {
+          "Description": "Vergisst Befehlt",
+          "IsMulti": true,
+          "Points": 5
+        },
+        {
+          "Description": "Fehlende Erkundung",
+          "IsMulti": false,
+          "Points": 10
+        },
+        {
+          "Description": "Vergisst Lagemeldung abzugeben",
+          "IsMulti": true,
+          "Points": 3
+        },
+        {
+          "Description": "Lagemeldung nicht vollständig durchgeführt",
+          "IsMulti": true,
+          "Points": 3
+        },
+        {
+          "Description": "Funkgespräche nicht vollständig wiedergegeben (Funkdisziplin)",
+          "IsMulti": true,
+          "Points": 3
+        },
+        {
+          "Description": "Erkennt unfallträchtige Situationen nicht und reagiert nicht durch Anweisung oder Tätigwerden",
+          "IsMulti": true,
+          "Points": 5
+        },
+        {
+          "Description": "Gruppenführer unterstützt nicht die Entnahme des Stromerzeugers",
+          "IsMulti": false,
+          "Points": 5
         }
       ]
     }

@@ -57,9 +57,15 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Raw\BrandeinsatzSilber.json" />
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		<PackageReference Include="SkiaSharp" Version="2.88.8" />
+		<PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.8" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -75,6 +81,9 @@
 	  <MauiXaml Update="Views\MistakesPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Views\QuestPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Views\SettingsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -86,6 +95,12 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\LazApp.Base\LazApp.Base.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiAsset Update="Resources\Raw\BrandeinsatzSilber.json">
+	    <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
+	  </MauiAsset>
 	</ItemGroup>
 
 </Project>

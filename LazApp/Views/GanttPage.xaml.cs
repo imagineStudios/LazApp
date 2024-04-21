@@ -7,13 +7,13 @@ namespace LazApp.Views;
 [QueryProperty(nameof(ScenarioName), "scenario")]
 public partial class GanttPage : ContentPage
 {
-    private readonly AssetService<Scenario> assetService;
+    private readonly ScenarioService scenarioService;
     private string level = string.Empty;
     private string scenarioName = string.Empty;
 
-    public GanttPage(AssetService<Scenario> assetService)
+    public GanttPage(ScenarioService scenarioService)
     {
-        this.assetService = assetService;
+        this.scenarioService = scenarioService;
         InitializeComponent();
     }
 
@@ -23,7 +23,8 @@ public partial class GanttPage : ContentPage
         set
         {
             level = value;
-            UpdateBindingContext();
+            scenarioService.Level = level;
+            BindingContext = scenarioService.Scenario;
         }
     }
 
@@ -33,14 +34,16 @@ public partial class GanttPage : ContentPage
         set
         {
             scenarioName = value;
-            UpdateBindingContext();
+            scenarioService.ScenarioName = scenarioName;
+            BindingContext = scenarioService.Scenario;
         }
     }
 
-    private void UpdateBindingContext()
+    private async void Quest_Clicked(object sender, EventArgs e)
     {
-        var resourceName = $"{ScenarioName}{Level}";
-        if (assetService[resourceName] is Scenario s)
-        BindingContext = new ScenarioViewModel(s);
+        if (sender is Element fe && fe.BindingContext is QuestViewModel qvm)
+        {
+            await Shell.Current.GoToAsync($"quest?questname={qvm.Name}&timeline={qvm.Timeline}");
+        }
     }
 }

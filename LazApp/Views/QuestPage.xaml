@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:LazApp.Base.ViewModels;assembly=LazApp.Base"
+             x:Class="LazApp.Views.QuestPage"
+             Title="QuestPage"
+             x:DataType="vm:QuestViewModel">
+    <VerticalStackLayout>
+        <Label Text="{Binding Name}" FontSize="16" Margin="0,0,0,4" FontAttributes="Bold"/>
+        <ScrollView VerticalScrollBarVisibility="Default">
+            <VerticalStackLayout>
+                <Label Text="Kommando" FontAttributes="Bold" Margin="0,8,0,4"/>
+                <Label Text="{Binding Command}"/>
+                <Label Text="Aufgabe" FontAttributes="Bold" Margin="0,8,0,4"/>
+                <Label Text="{Binding Description}"/>
+                <Label Text="Report" FontAttributes="Bold" Margin="0,8,0,4"/>
+                <Label Text="{Binding Report}"/>
+            </VerticalStackLayout>
+        </ScrollView>
+        <ScrollView Grid.Column="2" VerticalScrollBarVisibility="Default">
+            <CollectionView ItemsSource="{Binding Mistakes}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="vm:MistakeViewModel">
+                        <FlexLayout JustifyContent="Start">
+                            <Border Background="Red" Height="24" Width="24" Margin="8,4">
+                                <Label Text="{Binding PointsMulti}" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold"/>
+                            </Border>
+                            <Label Text="{Binding Description}" VerticalOptions="Center"/>
+                        </FlexLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+    </VerticalStackLayout>
+</ContentPage>

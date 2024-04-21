@@ -4,13 +4,21 @@ using System.Linq;
 
 namespace LazApp.Base.ViewModels;
 
-public class TimeLineViewModel(TimeLine timeLine) : ViewModelBase
+public class TimeLineViewModel : ViewModelBase
 {
-    private readonly TimeLine timeLine = timeLine;
+    private readonly TimeLine timeLine;
+
+    public TimeLineViewModel(TimeLine timeLine)
+    {
+        this.timeLine = timeLine;
+        Quests = timeLine.Quests.Select(q => new QuestViewModel(q, Name)).ToList();
+    }
 
     public string Name => timeLine.Name;
 
-    public List<QuestViewModel> Quests { get; } = timeLine.Quests.Select(q => new QuestViewModel(q)).ToList();
+    public List<QuestViewModel> Quests { get; }
+
+    public QuestViewModel this[string name] => Quests.SingleOrDefault(q => q.Name == name);
 
     internal void Init(IEnumerable<TimeLineViewModel> timeLines)
     {

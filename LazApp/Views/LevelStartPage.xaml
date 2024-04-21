@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="LazApp.Views.LevelStartPage"
              Title="LevelStartPage">
-    <VerticalStackLayout>
+    <VerticalStackLayout Spacing="40">
         <Button Text="Brandeinsatz" Clicked="BrandeinsatzButton_Clicked" WidthRequest="100" HeightRequest="100"/>
         <Button Text="Hilfeleistung" Clicked="HilfeleistungButton_Clicked" WidthRequest="100" HeightRequest="100"/>
         <Button Text="Theorie" Clicked="TheorieButton_Clicked" WidthRequest="100" HeightRequest="100"/>

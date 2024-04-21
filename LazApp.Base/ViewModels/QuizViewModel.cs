@@ -14,10 +14,10 @@ public class QuizViewModel : INotifyPropertyChanged
 
     public QuizViewModel(IEnumerable<Question> questions)
     {
-        NewQuiz(questions, 10);
         BackCommand = new Command(PreviousQuestion, o => questionIndex > 0);
         NextCommand = new Command(NextQuestion, o => questionIndex + 1 < (this.questions?.Count ?? 0));
         CheckQuestionCommand = new Command(CheckQuestion);
+        NewQuiz(questions, 10);
     }
 
     public event PropertyChangedEventHandler? PropertyChanged;

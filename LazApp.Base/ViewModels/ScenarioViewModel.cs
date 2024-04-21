@@ -18,4 +18,6 @@ public class ScenarioViewModel : ViewModelBase
     public string? Name => scenario?.Name;
 
     public List<TimeLineViewModel> TimeLines { get; set; }
+
+    public TimeLineViewModel this[string name] => TimeLines.SingleOrDefault(t => t.Name == name);
 }

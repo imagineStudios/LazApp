@@ -4,9 +4,11 @@ using System.Linq;
 
 namespace LazApp.Base.ViewModels;
 
-public class QuestViewModel(Quest quest) : ViewModelBase 
+public class QuestViewModel(Quest quest, string timeline) : ViewModelBase 
 {
     private readonly Quest quest = quest;
+
+    public string Timeline { get; } = timeline;
 
     public string? Name => quest.Name;
 
