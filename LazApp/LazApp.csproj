@@ -57,7 +57,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Raw\BrandeinsatzSilber.json" />
+	  <None Remove="Resources\Raw\BrandeinsatzSilber_alt.json" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -98,7 +98,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiAsset Update="Resources\Raw\BrandeinsatzSilber.json">
+	  <MauiAsset Update="Resources\Raw\BrandeinsatzSilber_alt.json">
 	    <LogicalName>%(RecursiveDir)%(Filename)%(Extension)</LogicalName>
 	  </MauiAsset>
 	</ItemGroup>

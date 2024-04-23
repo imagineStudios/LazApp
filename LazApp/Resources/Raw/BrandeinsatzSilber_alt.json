@@ -1,0 +1,310 @@
+{
+  "Name": "Brandeinsatz Silber",
+  "Mistakes": [
+    {
+      "Description": "Sprechen während des Antretens",
+      "Points": 3,
+      "IsMulti": false
+    },
+    {
+      "Description": "Sprechen während des Übungsablaufes",
+      "Points": 3,
+      "IsMulti": false
+    },
+    {
+      "Description": "Sprechen während der Übung mit den Schiedsrichtern oder mit nicht zur Gruppe gehörenden Personen",
+      "Points": 10,
+      "IsMulti": false
+    },
+    {
+      "Description": "Angriffstrupp rennt während der Leistungsübung",
+      "Points": 3,
+      "IsMulti": true
+    }
+  ],
+  "TimeLines": [
+    {
+      "Name": "AT",
+      "Quests": [
+        {
+          "Name": "Ausrüsten",
+          "Duration": 120,
+          "Requires": [ "GF|1. Befehl AT" ],
+          "Command": "Zum Einsatz fertig!",
+          "Report": "Angriffstrupp einsatzbereit. Druck [Name Truppführer] 300, [Namme Truppmann] 300.",
+          "Steps": [
+            {
+              "Description": "Der Angriffstrupp rüstet sich mit Atemschutzgeräten aus (die Feuerschutzhaube darf als Halskrause schon vorher angelegt sein). Es bleibt dem Trupp freigestellt, ob die Atemschutzgeräte aus dem Mannschaftsraum oder aus dem Geräteraum entnommen werden. Der Schiedsrichter Nr. 2 überwacht das korrekte Anlegen der Atemschutzgeräte, die Einsatzkurzprüfung und die Maskendichtprobe. Der Angriffstruppführer rüstet sich mit Handsprechfunkgerät, Handscheinwerfer, Feuerwehrleine und Verteiler, der Angriffstruppmann mit C-Strahlrohr (Mehrzweckstrahlrohr oder Hohlstrahlrohr), Seilschlauchhalter und Feuerwehrleine aus. Der Angriffstruppführer überprüft am Fahrzeug die Funkverbindung seines Handsprechfunkgerätes mit dem Gruppenführer: „Florentine … von Florentine … kommen!“. Nach der Anrufantwort kommt die Anfrage: „Frage, wie ist die Verständigung, kommen!“. Nach erfolgter Antwort „Verständigung gut!“ beendet er das Gespräch mit dem Wort: „Ende!“. Der Angriffstrupp setzt den Verteiler. ",
+              "Mistakes": [
+              ]
+            },
+            {
+              "Description": "Bei Fahrzeugen mit bereits an die B-Schlauchleitung angekuppeltem Verteiler (Schnellangriffsverteiler) nimmt der Angriffstrupp diesen Verteiler vor und verlegt somit auch die Wasserversorgung vom Löschfahrzeug zum Verteiler und gibt danach das Kommando „Wasser marsch!“.",
+              "OnlyIf": [ "Schnellangriffsverteiler" ],
+              "Mistakes": [
+              ]
+            },
+            {
+              "Description": "Der Angriffstrupp legt ausreichend C-Druckschläuche (z.B. zwei Schlauchtragekörbe, eine tragbare Schlauchhaspel, sechs Rollschläuche - je nach Fahrzeugbeladung) am Verteiler bereit. Der Angriffstrupp meldet sich am Verteiler beim Gruppenführer einsatzbereit. Der Gruppenführer notiert sich die Namen des Trupps und den Flaschendruck der Atemluftflaschen.",
+              "OnlyIf": [ "Rettungsgeraet.Hydraulisch" ],
+              "Mistakes": []
+            }
+          ]
+        },
+        {
+          "Name": "Vorbereitung Brandbekämpfung",
+          "Duration": 200,
+          "Requires": [ "GF|2. Befehl AT" ],
+          "Command": "Zur Brandbekämpfung unter Pressluftatmer, mit 1. Rohr ins erste Obergeschoss über die Steckleiter vor!",
+          "Report": "",
+          "Steps": [
+            {
+              "Description": "Der Angriffstrupp kuppelt am Verteiler den C-Druckschlauch an und verlegt gemeinsam die C-Schlauchleitung vom Verteiler zur Brandstelle. Er schließt sich an der Rauchgrenze gegenseitig den Lungenautomaten an. Der Angriffstruppführer gibt über Funk den Beginn der Einsatzzeit an den Gruppenführer durch. Der Gruppenführer notiert die Uhrzeit beim Anschließen des Lungenautomaten, den Ausgangsdruck der Atemluftflaschen und die Uhrzeit bei 1/3 und 2/3 der zu erwartenden Einsatzzeit.",
+              "Mistakes": [
+              ]
+            }
+          ]
+        }
+      ],
+      "Mistakes": [
+        {
+          "Description": "Angriffstruppführer wiederholt Befehle bzw. Kommandos nicht",
+          "Points": 3,
+          "IsMulti": true
+        },
+        {
+          "Description": "Nichtbeachtung eines Befehls",
+          "Points": 10,
+          "IsMulti": false
+        },
+        {
+          "Description": "Angriffstruppführer wiederholt Befehle unvollständig",
+          "Points": 2,
+          "IsMulti": true
+        },
+        {
+          "Description": "Angriffstrupp geht ohne Befehl zum Einsatz vor",
+          "Points": 5,
+          "IsMulti": false
+        }
+      ]
+    },
+    {
+      "Name": "WT",
+      "Quests": [
+        {
+          "Name": "Wasserversorgung",
+          "Duration": 120,
+          "Requires": [ "GF|1. Befehl AT" ],
+          "Command": "Vier Saugschläuche",
+          "Report": "Wassertrupp einsatzbereit",
+          "Steps": [
+            {
+              "Description": "Der Wassertrupp nimmt gemeinsam mit dem Maschinisten die fahrbare Haspel ab.",
+              "OnlyIf": [ "Haspel.Zweiperson" ]
+            },
+            {
+              "Description": "Der Wassertruppführer bestimmt durch Zuruf die Anzahl der Saugschläuche: „Vier Saugschläuche!“. Der Wassertrupp und der Schlauchtrupp verlegen gemeinsam die Saugleitung. Der Wassertrupp kuppelt, der Schlauchtrupp unterstützt. Das Kuppeln beginnt am Saugkorb. Ventilleine, Halteleine und Saugschutzkorb werden vom Wassertrupp mit Unterstützung des Schlauchtrupps angebracht. Auf Kommando des Wassertruppführers „Saugleitung hoch!“ wird die Saugleitung angehoben und der Maschinist kuppelt die fertige Saugleitung an die Feuerlöschkreiselpumpe. Auf das Kommando des Wassertruppführers: „Saugleitung zu Wasser!“ wird die Saugleitung zu Wasser gebracht."
+            },
+            {
+              "Description": "Bei Fahrzeugen ohne Schnellangriffsverteiler verlegt der Wassertrupp die B-Schlauchleitung von der Feuerlöschkreiselpumpe zum Verteiler."
+              "OnlyIf": [ "!Schnellangriffsverteiler" ]
+            }
+          ]
+        }
+      ],
+      "Mistakes": [
+        {
+          "Description": "Wassertruppführer wiederholt Befehle bzw. Kommandos nicht",
+          "Points": 3,
+          "IsMulti": true
+        },
+        {
+          "Description": "Nichtbeachtung eines Befehls",
+          "Points": 10,
+          "IsMulti": false
+        },
+        {
+          "Description": "Angriffstruppführer wiederholt Befehle unvollständig",
+          "Points": 2,
+          "IsMulti": true
+        },
+        {
+          "Description": "Angriffstrupp geht ohne Befehl zum Einsatz vor",
+          "Points": 5,
+          "IsMulti": false
+        },
+        {
+          "Description": "Vergisst die Meldung an den Gruppenführer nach der Erledigung des Einsatzauftrages",
+          "Points": 2,
+          "IsMulti": true
+        }
+      ]
+    },
+    {
+      "Name": "ST",
+      "Quests": [
+        {
+          "Name": "Wasserversorgung",
+          "Duration": 120,
+          "Requires": [ "GF|1. Befehl AT" ],
+          "Report": "Schlauchtrupp einsatzbereit",
+          "Steps": [
+            {
+              "Description": "Nach der Wiederholung des Kommandos durch den Angriffstruppführer bestimmt der Wassertruppführer durch Zuruf die Anzahl der Saugschläuche: „Vier Saugschläuche!“. Der Wassertrupp und der Schlauchtrupp verlegen gemeinsam die Saugleitung. Der Wassertrupp kuppelt, der Schlauchtrupp unterstützt. Das Kuppeln beginnt am Saugkorb. Ventilleine, Halteleine und Saugschutzkorb werden vom Wassertrupp mit Unterstützung des Schlauchtrupps angebracht. Auf Kommando des Wassertruppführers „Saugleitung hoch!“ wird die Saugleitung angehoben und der Maschinist kuppelt die fertige Saugleitung an die Feuerlöschkreiselpumpe. Auf das Kommando des Wassertruppführers: „Saugleitung zu Wasser!“ wird die Saugleitung zu Wasser gebracht."
+            },
+            {
+              "Description": "Bei Fahrzeugen ohne Schnellangriffsverteiler verlegt der Wassertrupp die B-Schlauchleitung von der Feuerlöschkreiselpumpe zum Verteiler.",
+              "OnlyIf": [ "!Schnellangriffsverteiler" ]
+            }
+          ]
+        }
+      ],
+      "Mistakes": [
+        {
+          "Description": "Schlauchtrupp wiederholt Befehle bzw. Kommandos nicht",
+          "Points": 3,
+          "IsMulti": true
+        },
+        {
+          "Description": "Nichtbeachtung eines Befehls",
+          "Points": 10,
+          "IsMulti": false
+        },
+        {
+          "Description": "Schlauchtruppführer wiederholt Befehle unvollständig",
+          "Points": 2,
+          "IsMulti": true
+        },
+        {
+          "Description": "Schlauchtrupptrupp geht ohne Befehl zum Einsatz vor",
+          "Points": 5,
+          "IsMulti": false
+        },
+        {
+          "Description": "Vergisst die Meldung an den Gruppenführer nach der Erledigung des Einsatzauftrages",
+          "Points": 2,
+          "IsMulti": true
+        }
+      ]
+    },
+    {
+      "Name": "Melder"
+    },
+    {
+      "Name": "Maschinist",
+      "Quests": [
+        {
+          "Name": "Wasserversorgung",
+          "Duration": 120,
+          "Requires": [ "GF|1. Befehl AT" ],
+          "Steps": [
+            {
+
+              "Description": "Der Maschinist startet das Fahrzeug und schaltet die Fahrzeugbeleuchtung, die blauen Rundumkennleuchten und die Warnblinkanlage ein. Er legt Kupplungsschlüssel (falls erforderlich), Saugkorb, Saugschutzkorb, Halte- und Ventilleine bereit"
+            },
+            {
+              "Description": "Je nach Fahrzeugart ist er bei der Entnahme der Tragkraftspritze – Öffnen der Geräteraumtür sowie Öffnen der Verriegelung – behilflich",
+              "OnlyIf": [ "Tragkraftspritze" ]
+            },
+            {
+              "Description": "Er hilft bei der Entnahme der Einpersonen/Zweipersonenhaspel.",
+              "OnlyIf": [ "Haspel.Einperson", "Haspel.Zweiperson" ]
+            },
+            {
+              "Description": "Er macht die Feuerlöschkreiselpumpe betriebsbereit, schließt die Saug- und Druckleitung an und bedient die Feuerlöschkreiselpumpe. Vor Einleitung des Saugvorganges befestigt er die Halteleine an dem am Aufstellplatz befindlichen Pfahl mit Mastwurf und Spierenstich. Die Ventilleine befestigt er mit dem Mastwurf im Bedienbereich der Feuerlöschkreiselpumpe. Auf das Kommando „Wasser marsch!“ gibt er das Zeichen „Verstanden“ und öffnet das entsprechende Absperrorgan."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Name": "GF",
+      "Quests": [
+        {
+          "Name": "1. Befehl AT",
+          "Command": "Wasserentnahme Löschteich; Verteiler 20 Meter vor Gebäudeeingang; Angriffstrupp mit Pressluftatmer ausrüsten; zum Einsatz fertig!",
+          "Duration": 10,
+          "Steps": [
+            {
+              "Description": "Der Gruppenführer rüstet sich mit Handsprechfunkgerät und Handscheinwerfer aus und geht zur Erkundung zum Wohnhaus vor. Er geht auf die Person (Schiedsrichter Nr. 1) zu, die sich im Bereich vor dem Wohnhaus aufhält und befragt diese Person (Schiedsrichter Nr. 1): „Was ist hier passiert? Sind Sie Bewohner dieses Gebäudes? Befinden sich noch Menschen im Gebäude?“ Die Person (Schiedsrichter Nr. 1) antwortet: „Ich weiß nicht was passiert ist! Ich bin der Nachbar, die Bewohner des Hauses sind im Urlaub! Der einzige Zugang zum Haus führt durch diese Tür, die ist jedoch verschlossen.“. Der Gruppenführer fährt mit seiner Erkundung fort, er geht um das Gebäude (Übungsgerüst) herum, überwacht den Einsatz und führt die Atemschutzüberwachung durch.",
+              "Mistakes": []
+            }
+          ]
+        }
+      ],
+      "Mistakes": [
+        {
+          "Description": "Gruppenführer liest Befehle oder Lagemeldungen ab (vorbereitet)",
+          "IsMulti": false,
+          "Points": 10
+        },
+        {
+          "Description": "Rüstet sich nicht vollständig mit Handsprechfunkgerät und Handscheinwerfer aus",
+          "IsMulti": true,
+          "Points": 3
+        },
+        {
+          "Description": "Befehle nicht entsprechend der Reihenfolge nach FwDV (Einheit, Auftrag, Mittel, Ziel, Weg) gegeben",
+          "IsMulti": true,
+          "Points": 5
+        },
+        {
+          "Description": "Befehl nicht zum richtigen Zeitpunkt",
+          "IsMulti": true,
+          "Points": 3
+        },
+        {
+          "Description": "Befehle nicht vollständig",
+          "IsMulti": true,
+          "Points": 3
+        },
+        {
+          "Description": "Befehle nicht zielgerichtet",
+          "IsMulti": true,
+          "Points": 3
+        },
+        {
+          "Description": "Befehle nicht lautstark",
+          "IsMulti": true,
+          "Points": 3
+        },
+        {
+          "Description": "Vergisst Befehlt",
+          "IsMulti": true,
+          "Points": 5
+        },
+        {
+          "Description": "Fehlende Erkundung",
+          "IsMulti": false,
+          "Points": 10
+        },
+        {
+          "Description": "Vergisst Lagemeldung abzugeben",
+          "IsMulti": true,
+          "Points": 3
+        },
+        {
+          "Description": "Lagemeldung nicht vollständig durchgeführt",
+          "IsMulti": true,
+          "Points": 3
+        },
+        {
+          "Description": "Funkgespräche nicht vollständig wiedergegeben (Funkdisziplin)",
+          "IsMulti": true,
+          "Points": 3
+        },
+        {
+          "Description": "Erkennt unfallträchtige Situationen nicht und reagiert nicht durch Anweisung oder Tätigwerden",
+          "IsMulti": true,
+          "Points": 5
+        },
+        {
+          "Description": "Gruppenführer unterstützt nicht die Entnahme des Stromerzeugers",
+          "IsMulti": false,
+          "Points": 5
+        }
+      ]
+    }
+  ]
+}

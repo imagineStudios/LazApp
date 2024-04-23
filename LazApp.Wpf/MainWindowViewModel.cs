@@ -15,7 +15,7 @@ namespace LazApp.Wpf
 
         public MainWindowViewModel()
         {
-            var json = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "HilfeleistungSilber.json"));
+            var json = File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "BrandeinsatzSilber.json"));
             var scenario = JsonConvert.DeserializeObject<Scenario>(json);
             Scenario = new ScenarioViewModel(scenario);
         }

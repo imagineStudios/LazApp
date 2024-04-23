@@ -6,12 +6,12 @@ namespace LazApp
     {
         private readonly Dictionary<string, T> items = [];
 
-        public AssetService(string test)
+        public AssetService(string assets)
         {
-            Task.Run(() => Init([test]));
+            Task.Run(() => Init(assets.Split('|')));
         }
 
-        public T? this[string scenario] => items.ContainsKey(scenario) ? items[scenario] : default;
+        public T? this[string scenario] => items.TryGetValue(scenario, out T? value) ? value : default;
 
         private async Task Init(IEnumerable<string> resources)
         {

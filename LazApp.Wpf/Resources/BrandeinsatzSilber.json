@@ -21,7 +21,7 @@
 			"Points": 3,
 			"IsMulti": true
 		}
-	],
+	],		
 	"TimeLines": [
 		{
 			"Name": "GF",
@@ -35,7 +35,7 @@
 				{
 					"Name": "Erkundung",
 					"Duration": 30,
-					"Requires": [ "GF|1. Befehl AT" ],
+					"Requires": ["GF|1.Befehl AT"],
 					"Steps": [
 						{
 							"Description": "Der Gruppenführer rüstet sich mit Handsprechfunkgerät und Handscheinwerfer aus und geht zur Erkundung zum Wohnhaus vor. Er geht auf die Person (Schiedsrichter Nr. 1) zu, die sich im Bereich vor dem Wohnhaus aufhält und befragt diese Person (Schiedsrichter Nr. 1): „Was ist hier passiert? Sind Sie Bewohner dieses Gebäudes? Befinden sich noch Menschen im Gebäude?“ Die Person (Schiedsrichter Nr. 1) antwortet: „Ich weiß nicht was passiert ist! Ich bin der Nachbar, die Bewohner des Hauses sind im Urlaub! Der einzige Zugang zum Haus führt durch diese Tür, die ist jedoch verschlossen.“. Der Gruppenführer fährt mit seiner Erkundung fort, er geht um das Gebäude (Übungsgerüst) herum, überwacht den Einsatz und führt die Atemschutzüberwachung durch."
@@ -46,27 +46,27 @@
 					"Name": "2. Befehl AT",
 					"Duration": 10,
 					"Command": "Angriffstrupp zur Brandbekämpfung unter Pressluftatmer mit 1. Rohr ins erste Obergeschoss über die Steckleiter vor!",
-					"Requires": [ "AT|Ausrüsten" ],
+					"Requires": ["AT|Ausrüsten"],
 					"Steps": []
 				},
 				{
 					"Name": "1. Befehl ST",
 					"Duration": 10,
 					"Command": "Schlauchtrupp und Melder zum Anleitern mit Steckleiter an der rechten Brüstungsseite im ersten Obergeschoss vor!",
-					"Requires": [ "ST|Wasserversorgung" ],
+					"Requires": ["ST|Wasserversorgung"],
 					"Steps": []
 				},
 				{
 					"Name": "1. Befehl WT",
 					"Duration": 10,
 					"Command": "Wassertrupp als Sicherheitstrupp mit Pressluftatmer ausrüsten und bis zur Steckleiter vor!",
-					"Requires": [ "WT|Wasserversorgung" ],
+					"Requires": ["WT|Wasserversorgung"],
 					"Steps": []
 				},
 				{
 					"Name": "Atemschutzüberwachung 1",
 					"Duration": 20,
-					"Requires": [ "AT|Vorbereitung" ],
+					"Requires": ["AT|Vorbereitung"],
 					"Steps": [
 						{
 							"Description": "Der Gruppenführer notiert die Uhrzeit beim Anschließen des Lungenautomaten, den Ausgangsdruck der Atemluftflaschen und die Uhrzeit bei 1/3 und 2/3 der zu erwartenden Einsatzzeit."
@@ -74,21 +74,21 @@
 					]
 				},
 				{
-					"Name": "1. Befehl Melder",
+					"Name": "1.Befehl Melder",
 					"Duration": 20,
 					"Command": "Melder 1. Lagemeldung: Zimmerbrand im ersten Obergeschoss eines zweigeschossigen Wohngebäudes, Hauptstr. 12, Brand droht auf den Dachvorsprung überzugreifen, ein Trupp unter Pressluftatmer mit einem C-Rohr im Innenangriff, ein Löschgruppenfahrzeug zur Einsatzstelle!",
-					"Requires": [ "Melder|Anleitern" ],
+					"Requires": ["Melder|Anleitern"],
 					"Steps": []
 				},
 				{
-					"Name": "2. Befehl ST",
+					"Name": "2.Befehl ST",
 					"Duration": 10,
 					"Command": "Schlauchtrupp zur Riegelstellung zwischen Fenster und Dachvorsprung mit 2. Rohr zum Wohnhaus vor!",
-					"Requires": [ "ST|Verteiler" ],
+					"Requires": ["ST|Verteiler"],
 					"Steps": []
 				},
 				{
-					"Name": "2. Befehl Melder",
+					"Name": "2.Befehl Melder",
 					"Duration": 10,
 					"Command": "Melder: Verteiler besetzen!",
 					"Steps": []
@@ -96,7 +96,7 @@
 				{
 					"Name": "Atemschutzüberwachung 2",
 					"Duration": 20,
-					"Requires": [ "AT|Hinweg" ],
+					"Requires": ["AT|Hinweg"],
 					"Steps": [
 						{
 							"Description": "Der Gruppenführer trägt den Flaschendruck in die Atemschutzdokumentation ein."
@@ -106,7 +106,7 @@
 				{
 					"Name": "Atemschutzüberwachung 3",
 					"Duration": 20,
-					"Requires": [ "WT|Sicherheitstrupp" ],
+					"Requires": ["WT|Sicherheitstrupp"],
 					"Steps": [
 						{
 							"Description": "Der Gruppenführer notiert sich die Namen des Wassertrupps und den Flaschendruck der Atemluftflaschen."
@@ -121,7 +121,7 @@
 				{
 					"Name": "Ausrüsten",
 					"Duration": 90,
-					"Requires": [ "GF|1. Befehl AT" ],
+					"Requires": ["GF|1.Befehl AT"],
 					"Command": "Zum Einsatz fertig!",
 					"Report": "Angriffstrupp einsatzbereit; Druck [Führer] 300, Druck [Mann] 300!",
 					"Steps": [
@@ -130,11 +130,11 @@
 						},
 						{
 							"Description": "Der Angriffstrupp nimmt den Schnellangriffsverteiler vor und verlegt somit auch die Wasserversorgung vom Löschfahrzeug zum Verteiler und gibt danach das Kommando „Wasser marsch!“.",
-							"OnlyIf": [ "Verteiler.Schnellangriff" ]
+							"OnlyIf": ["Verteiler.Schnellangriff"]
 						},
 						{
 							"Description": "Der Angriffstrupp setzt den Verteiler.",
-							"OnlyIf": [ "!Verteiler.Schnellangriff" ]
+							"OnlyIf": ["!Verteiler.Schnellangriff"]
 						},
 						{
 							"Description": "Der Angriffstrupp legt ausreichend C-Druckschläuche (z.B. zwei Schlauchtragekörbe, eine tragbare Schlauchhaspel, sechs Rollschläuche - je nach Fahrzeugbeladung) am Verteiler bereit. Der Angriffstrupp meldet sich am Verteiler beim Gruppenführer einsatzbereit. Der Gruppenführer notiert sich die Namen des Trupps und den Flaschendruck der Atemluftflaschen."
@@ -144,7 +144,7 @@
 				{
 					"Name": "Vorbereitung",
 					"Duration": 30,
-					"Requires": [ "GF|2. Befehl AT" ],
+					"Requires": ["GF|2.Befehl AT"],
 					"Command": "Zur Brandbekämpfung unter Pressluftatmer, mit 1. Rohr ins erste Obergeschoss über die Steckleiter vor!",
 					"Report": "Beginn der Einsatzzeit",
 					"Steps": [
@@ -156,7 +156,7 @@
 				{
 					"Name": "Hinweg",
 					"Duration": 60,
-					"Requires": [ "ST|Anleitern" ],
+					"Requires": ["ST|Anleitern"],
 					"Report": "Brandstelle erreicht. Druck [Führer] 250, [Mann] 240.",
 					"Steps": [
 						{
@@ -183,27 +183,27 @@
 				{
 					"Name": "Wasserversorgung",
 					"Duration": 80,
-					"Requires": [ "GF|1. Befehl AT" ],
+					"Requires": ["GF|1.Befehl AT"],
 					"Command": "Vier Saugschläuche!",
 					"Report": "Wassertrupp einsatzbereit",
 					"Steps": [
 						{
 							"Description": "Der Wassertrupp nimmt gemeinsam mit dem Maschinisten die fahrbare Haspel ab.",
-							"OnlyIf": [ "Haspel.Zweiperson" ]
+							"OnlyIf": ["Haspel.Zweiperson"]
 						},
 						{
 							"Description": "Der Wassertrupp und der Schlauchtrupp verlegen gemeinsam die Saugleitung. Der Wassertrupp kuppelt, der Schlauchtrupp unterstützt. Das Kuppeln beginnt am Saugkorb. Ventilleine, Halteleine und Saugschutzkorb werden vom Wassertrupp mit Unterstützung des Schlauchtrupps angebracht. Auf Kommando des Wassertruppführers „Saugleitung hoch!“ wird die Saugleitung angehoben und der Maschinist kuppelt die fertige Saugleitung an die Feuerlöschkreiselpumpe. Auf das Kommando des Wassertruppführers: „Saugleitung zu Wasser!“ wird die Saugleitung zu Wasser gebracht."
 						},
 						{
 							"Description": "Der Wassertrupp verlegt die B-Schlauchleitung von der Feuerlöschkreiselpumpe zum Verteiler.",
-							"OnlyIf": [ "!Verteiler.Schnellangriff" ]
+							"OnlyIf": ["!Verteiler.Schnellangriff"]
 						}
 					]
 				},
 				{
 					"Name": "Sicherheitstrupp",
 					"Duration": 90,
-					"Requires": [ "GF|1. Befehl WT" ],
+					"Requires": ["GF|1.Befehl WT"],
 					"Command": "Als Sicherheitstrupp mit Pressluftatmer ausrüsten bis zur Steckleiter vor!",
 					"Report": "Wassertrupp einsatzbereit",
 					"Steps": [
@@ -220,7 +220,7 @@
 				{
 					"Name": "Wasserversorgung",
 					"Duration": 80,
-					"Requires": [ "GF|1. Befehl AT" ],
+					"Requires": ["GF|1.Befehl AT"],
 					"Report": "Schlauchtrupp einsatzbereit",
 					"Steps": [
 						{
@@ -231,7 +231,7 @@
 				{
 					"Name": "Anleitern",
 					"Duration": 60,
-					"Requires": [ "GF|1. Befehl ST" ],
+					"Requires": ["GF|1.Befehl ST"],
 					"Command": "Schlauchtrupp und Melder zum Anleitern mit Steckleiter an der rechten Brüstungsseite im ersten Obergeschoss vor!",
 					"Steps": [
 						{
@@ -266,7 +266,7 @@
 				{
 					"Name": "Erkundung",
 					"Duration": 30,
-					"Requires": [ "GF|1. Befehl AT" ],
+					"Requires": ["GF|1.Befehl AT"],
 					"Steps": [
 						{
 							"Description": "Der Melder begleitet den Gruppenführer bei der Erkundung"
@@ -276,7 +276,7 @@
 				{
 					"Name": "Anleitern",
 					"Duration": 60,
-					"Requires": [ "GF|1. Befehl ST" ],
+					"Requires": ["GF|1.Befehl ST"],
 					"Steps": [
 						{
 							"Description": "Schlauchtrupp und Melder bringen die Steckleiter in Stellung. Der Melder geht unaufgefordert zum Gruppenführer."
@@ -284,11 +284,11 @@
 					]
 				},
 				{
-					"Name": "1. Lagemeldung",
+					"Name": "1.Lagemeldung",
 					"Duration": 30,
 					"Command": "1. Lagemeldung: Zimmerbrand im ersten Obergeschoss eines zweigeschossigen Wohngebäudes, Hauptstr. 12, Feuer droht auf den Dachvorsprung überzugreifen, ein Trupp unter Pressluftatmer mit einem C-Rohr im Innenangriff, ein Löschgruppenfahrzeug zur Einsatzstelle!",
 					"Report": "Leitstelle … von Florian …, kommen! [Antwort] 1. Lagemeldung: Zimmerbrand im ersten Obergeschoss eines zweigeschossigen Wohngebäudes, Hauptstr. 12, Feuer droht auf den Dachvorsprung überzugreifen, ein Trupp unter Pressluftatmer mit einem C-Rohr im Innenangriff, ein Löschgruppenfahrzeug zur Einsatzstelle!“",
-					"Requires": [ "GF|1. Befehlt Melder" ],
+					"Requires": ["GF|1. Befehlt Melder"],
 					"Steps": [
 						{
 							"Description": "Der Melder wiederholt die Lagemeldung des Gruppenführers. Der Melder begibt sich zum Schiedsrichter Nr. 1 und meldet: „Leitstelle … von Florian …, kommen!“. Der Schiedsrichter Nr. 1 antwortet: „Hier Leitstelle … kommen!“. Melder: „1. Lagemeldung: Zimmerbrand im ersten Obergeschoss eines zweigeschossigen Wohngebäudes, Hauptstr. 12, Feuer droht auf den Dachvorsprung überzugreifen, ein Trupp unter Pressluftatmer mit einem C-Rohr im Innenangriff, ein Löschgruppenfahrzeug zur Einsatzstelle!“"
@@ -303,7 +303,7 @@
 				{
 					"Name": "Wasserversorgung",
 					"Duration": 80,
-					"Requires": [ "GF|1. Befehl AT" ],
+					"Requires": ["GF|1.Befehl AT"],
 					"Report": "Verstanden",
 					"Steps": [
 						{
@@ -314,22 +314,22 @@
 						},
 						{
 							"Description": "und Kupplungsschlüssel",
-							"OnlyIf": [ "Kupplungsschluessel" ]
+							"OnlyIf": ["Kupplungsschluessel"]
 						},
 						{
 							"Description": "bereit."
 						},
 						{
 							"Description": "Er unterstützt die Entnahme der Tragkraftspritze",
-							"OnlyIf": [ "Tragkraftspritze" ]
+							"OnlyIf": ["Tragkraftspritze"]
 						},
 						{
 							"Description": "Er nimmt die fahrbare Einpersonenhaspel ab.",
-							"OnlyIf": [ "Haspel.Einperson" ]
+							"OnlyIf": ["Haspel.Einperson"]
 						},
 						{
 							"Description": "Er nimmt die fahrbare Zweipersonenhaspel zusammen mit dem Wassertrupp ab.",
-							"OnlyIf": [ "Haspel.Zweiperson" ]
+							"OnlyIf": ["Haspel.Zweiperson"]
 						},
 						{
 							"Description": "Er macht die Feuerlöschkreiselpumpe betriebsbereit, schließt die Saug- und Druckleitung an und bedient die Feuerlöschkreiselpumpe. Vor Einleitung des Saugvorganges befestigt er die Halteleine an dem am Aufstellplatz befindlichen Pfahl mit Mastwurf und Spierenstich. Die Ventilleine befestigt er mit dem Mastwurf im Bedienbereich der Feuerlöschkreiselpumpe. Auf das Kommando „Wasser marsch!“ gibt er das Zeichen „Verstanden“ und öffnet das entsprechende Absperrorgan."
@@ -339,7 +339,7 @@
 				{
 					"Name": "Steckleiter",
 					"Duration": 30,
-					"Requires": [ "GF|1. Befehl ST" ],
+					"Requires": ["GF|1.Befehl ST"],
 					"Steps": [
 						{
 							"Description": "Der Maschinist unterstützt bei der Herabnahme der Steckleiter"

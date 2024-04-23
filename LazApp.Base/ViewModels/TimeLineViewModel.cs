@@ -12,11 +12,14 @@ public class TimeLineViewModel : ViewModelBase
     {
         this.timeLine = timeLine;
         Quests = timeLine.Quests.Select(q => new QuestViewModel(q, Name)).ToList();
+        Mistakes = timeLine.Mistakes.Select(m => new MistakeViewModel(m)).ToList();
     }
 
     public string Name => timeLine.Name;
 
     public List<QuestViewModel> Quests { get; }
+
+    public List<MistakeViewModel> Mistakes { get; }
 
     public QuestViewModel this[string name] => Quests.SingleOrDefault(q => q.Name == name);
 

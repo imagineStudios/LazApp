@@ -16,7 +16,7 @@
                 <CollectionView ItemsSource="{Binding Answers}">
                     <CollectionView.ItemTemplate>
                         <DataTemplate x:DataType="vm:AnswerViewModel">
-                            <Border>
+                            <Border StrokeThickness="0">
                                 <Border.Style>
                                     <Style TargetType="Border">
                                         <Style.Triggers>

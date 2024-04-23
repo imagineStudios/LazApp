@@ -6,7 +6,49 @@
     xmlns:local="clr-namespace:LazApp"
     xmlns:views="clr-namespace:LazApp.Views"
     Title="LazApp">
-    <ShellContent Title="Start" ContentTemplate="{DataTemplate views:MainPage}"/>
+    <FlyoutItem Title="Bronze" FlyoutIcon="{StaticResource IconOne}">
+        <Tab Title="Brandeinsatz" Icon="{StaticResource Fire}">
+            <ShellContent
+                Title="Brandeinsatz"
+                ContentTemplate="{DataTemplate views:LevelStartPage}"
+                Route="levelstart?level=Bronze"/>
+        </Tab>
+    </FlyoutItem>
+    <FlyoutItem Title="Silber" FlyoutIcon="{StaticResource IconTwo}">
+        <Tab Title="Brandeinsatz" Icon="{StaticResource Fire}">
+            <ShellContent
+                Title="Brandeinsatz"
+                ContentTemplate="{DataTemplate views:GanttPage}"
+                Route="gantt?scenario=BrandeinsatzSilber"/>
+        </Tab>
+        <Tab Title="Hilfeleistung" Icon="{StaticResource CarCrash}">
+            <ShellContent
+                Title="Hilfeleistung"
+                ContentTemplate="{DataTemplate views:GanttPage}"
+                Route="gantt?scenario=HilfeleistungSilber"/>
+        </Tab>
+    </FlyoutItem>
+    <FlyoutItem Title="Gold" FlyoutIcon="{StaticResource IconTwo}">
+        <Tab Title="Brandeinsatz" Icon="{StaticResource Fire}">
+            <ShellContent
+                Title="Brandeinsatz"
+                ContentTemplate="{DataTemplate views:LevelStartPage}"
+                Route="levelstart?level=Gold"/>
+        </Tab>
+        <Tab Title="Hilfeleistung" Icon="{StaticResource CarCrash}">
+            <ShellContent
+                Title="Hilfeleistung"
+                ContentTemplate="{DataTemplate views:LevelStartPage}"
+                Route="levelstart?level=Gold"/>
+        </Tab>
+        <Tab Title="Theorie" Icon="{StaticResource Brain}">
+            <ShellContent
+                Title="Theorie"
+                ContentTemplate="{DataTemplate views:QuizPage}"
+                Route="quiz"/>
+        </Tab>
+    </FlyoutItem>
+    <!--<ShellContent Title="Start" ContentTemplate="{DataTemplate views:MainPage}"/>-->
     <!--<FlyoutItem Title="Silber" Route="silver">
         <ShellContent Title="Home"
                 ContentTemplate="{DataTemplate views:GanttPage}"

@@ -11,11 +11,14 @@ public class ScenarioViewModel : ViewModelBase
     public ScenarioViewModel(Scenario scenario)
     {
         this.scenario = scenario;
+        Mistakes = scenario.Mistakes.Select(m => new MistakeViewModel(m)).ToList();
         TimeLines = this.scenario.TimeLines.Select(tl => new TimeLineViewModel(tl)).ToList();
         TimeLines.ForEach(t => t.Init(TimeLines));
     }
 
     public string? Name => scenario?.Name;
+
+    public List<MistakeViewModel> Mistakes { get; }
 
     public List<TimeLineViewModel> TimeLines { get; set; }
 
