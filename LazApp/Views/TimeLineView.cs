@@ -2,21 +2,32 @@ using LazApp.Base.ViewModels;
 
 namespace LazApp.Views;
 
-public class TimeLineView : ContentView
+public class TimeLineView : AbsoluteLayout
 {
-    private readonly AbsoluteLayout layout;
-    private double scaleX = 2;
-    private double scaleY = 1;
+    private readonly List<Button> buttons = [];
+
+    public static readonly BindableProperty MyScaleXProperty = BindableProperty.Create(nameof(MyScaleX), typeof(double), typeof(TimeLineView), 1.0, propertyChanged: ScalingChanged);
 
     public TimeLineView()
     {
-        layout = new AbsoluteLayout();
-        Content = layout;
         BindingContextChanged += TimeLineView_BindingContextChanged;
+    }
+
+    public double MyScaleX
+    {
+        get => (double)GetValue(MyScaleXProperty);
+        set => SetValue(MyScaleXProperty, value);
+    }
+
+    private static void ScalingChanged(BindableObject bindable, object oldValue, object newValue)
+    {
+        (bindable as TimeLineView)?.Position();
     }
 
     private void TimeLineView_BindingContextChanged(object? sender, EventArgs e)
     {
+        buttons.Clear();
+        Children.Clear();
         if (BindingContext is TimeLineViewModel tlvm)
         {
             foreach (var vm in tlvm.Quests)
@@ -25,34 +36,37 @@ public class TimeLineView : ContentView
                 {
                     Text = vm.Name,
                     CornerRadius = 0,
+                    BindingContext = vm,
                 };
                 button.Clicked += Button_Clicked;
 
-                layout.Children.Add(button);
-                Position(button, new Rect(vm.StartTime, 30, vm.Duration, 40));
+                Children.Add(button);
+                buttons.Add(button);
             }
+            Position();
         }
     }
 
-    //public static readonly BindableProperty TimeLineProperty = BindableProperty.Create(nameof(Quests), typeof(TimeLineViewModel), typeof(TimeLineView), null, propertyChanged: TimeLineChanged);
-
-
-    //public TimeLineViewModel Quests
-    //{
-    //    get => (TimeLineViewModel)GetValue(TimeLineProperty);
-    //    set => SetValue(TimeLineProperty, value);
-    //}
+    private void Position()
+    {
+        buttons.ForEach(b =>
+        {
+            var vm = b.BindingContext as QuestViewModel;
+            Position(b, new Rect(vm.StartTime, 30, vm.Duration, 40));
+        });
+    }
 
     private async void Button_Clicked(object? sender, EventArgs e)
     {
+        var scenario = (BindingContext as TimeLineViewModel)?.ScenarioName.Replace(" ", "");
         var timeLine = (BindingContext as TimeLineViewModel)?.Name;
         var quest = (sender as Button)?.Text;
-        await Shell.Current.GoToAsync($"quest?timeline={timeLine}&questname={quest}");
+        await Shell.Current.GoToAsync($"quest?scenario={scenario}&questname={quest}&timeline={timeLine}");
     }
 
     private void Position(BindableObject obj, Rect rect)
     {
-        var r = new Rect(rect.X * scaleX, rect.Y * scaleY, rect.Width * scaleX - 1, rect.Height * scaleY);
-        AbsoluteLayout.SetLayoutBounds(obj, r);
+        var r = new Rect(rect.X * MyScaleX, rect.Y, rect.Width * MyScaleX - 1, rect.Height);
+        SetLayoutBounds(obj, r);
     }
 }

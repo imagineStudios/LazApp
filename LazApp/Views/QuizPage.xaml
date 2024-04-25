@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:vm="clr-namespace:LazApp.Base.ViewModels;assembly=LazApp.Base"
+             xmlns:views="clr-namespace:LazApp.Views"
              x:Class="LazApp.Views.QuizPage"
              x:DataType="vm:QuizViewModel"
              Title="QuizPage">
@@ -10,42 +11,13 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <ScrollView BindingContext="{Binding CurrentQuestion}" >
-            <VerticalStackLayout Margin="20" x:DataType="vm:QuestionViewModel">
-                <Label FontSize="16" Text="{Binding Text}" Margin="20"/>
-                <CollectionView ItemsSource="{Binding Answers}">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate x:DataType="vm:AnswerViewModel">
-                            <Border StrokeThickness="0">
-                                <Border.Style>
-                                    <Style TargetType="Border">
-                                        <Style.Triggers>
-                                            <DataTrigger TargetType="Border" Binding="{Binding AnsweredCorrectly}" Value="true">
-                                                <Setter Property="Background" Value="#4000FF00"/>
-                                            </DataTrigger>
-                                            <DataTrigger TargetType="Border" Binding="{Binding AnsweredCorrectly}" Value="false">
-                                                <Setter Property="Background" Value="#40FF0000"/>
-                                            </DataTrigger>
-                                        </Style.Triggers>
-                                    </Style>
-                                </Border.Style>
-                                <HorizontalStackLayout>
-                                    <CheckBox IsChecked="{Binding IsSelected}"/>
-                                    <Label Text="{Binding Text}" Margin="0,4" VerticalOptions="Center"/>
-                                </HorizontalStackLayout>
-                            </Border>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-            </VerticalStackLayout>
-        </ScrollView>
+        <views:QuestionPage BindingContext="{Binding CurrentQuestion}"/>
         <Border Background="#202040" Grid.Row="1" StrokeThickness="0">
             <HorizontalStackLayout Margin="20" Spacing="10">
                 <Button Command="{Binding CheckQuestionCommand}" Text="Check Answer"/>
                 <Button Command="{Binding BackCommand}" Text="Back"/>
                 <Button Command="{Binding NextCommand}" Text="Next"/>
             </HorizontalStackLayout>
-
         </Border>
     </Grid>
 </ContentPage>

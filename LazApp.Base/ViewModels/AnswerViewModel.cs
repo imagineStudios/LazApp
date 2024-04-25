@@ -4,16 +4,25 @@ using LazApp.Base.Models;
 
 namespace LazApp.Base.ViewModels;
 
-public class AnswerViewModel(Answer answer) : INotifyPropertyChanged
+public class AnswerViewModel : INotifyPropertyChanged
 {
     private bool isSelected;
     private bool? answeredCorrectly;
 
+    public AnswerViewModel(Answer answer)
+    {
+        ToggleSelectionCommand = new Command(o => IsSelected = !IsSelected);
+        Text = answer.Text;
+        IsCorrect = answer.IsCorrect;
+    }
+
     public event PropertyChangedEventHandler? PropertyChanged;
 
-    public string Text => answer.Text;
+    public Command ToggleSelectionCommand { get; }
 
-    public bool IsCorrect => answer.IsCorrect;
+    public string Text { get; }
+
+    public bool IsCorrect { get; }
 
     public bool IsSelected
     {

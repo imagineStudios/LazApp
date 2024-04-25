@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:LazApp.Base.ViewModels"
+             xmlns:views="clr-namespace:LazApp.Views"
+             x:Class="LazApp.Views.StatisticsPage"
+             x:DataType="vm:StatisticsViewModel"
+             Title="Training">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Mannschaft"/>
+        <ToolbarItem Text="Maschinist"/>
+        <ToolbarItem Text="Gruppenführer"/>
+    </ContentPage.ToolbarItems>
+    <CollectionView ItemsSource="{Binding Questions}" Margin="20" ItemSizingStrategy="MeasureFirstItem" VerticalOptions="Start">
+        <CollectionView.ItemsLayout>
+            <GridItemsLayout Orientation="Vertical" Span="10"/>
+        </CollectionView.ItemsLayout>
+        <CollectionView.ItemTemplate>
+            <DataTemplate x:DataType="vm:QuestionStatisticsViewModel">
+                <Border BackgroundColor="{Binding Color}" HeightRequest="32" WidthRequest="32" Margin="2" StrokeThickness="0" StrokeShape="Ellipse"
+                        ToolTipProperties.Text="{Binding Question}">
+                    <Label Text="{Binding Id}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                </Border>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</ContentPage>

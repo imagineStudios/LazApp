@@ -5,49 +5,96 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:LazApp"
     xmlns:views="clr-namespace:LazApp.Views"
+    x:DataType="local:AppShell"
     Title="LazApp">
-    <FlyoutItem Title="Bronze" FlyoutIcon="{StaticResource IconOne}">
-        <Tab Title="Brandeinsatz" Icon="{StaticResource Fire}">
-            <ShellContent
-                Title="Brandeinsatz"
-                ContentTemplate="{DataTemplate views:LevelStartPage}"
-                Route="levelstart?level=Bronze"/>
-        </Tab>
+    <FlyoutItem Title="Bronze" FlyoutIcon="{StaticResource MedalBronze}">
+        <ShellContent
+            Title="Brandeinsatz"
+            Icon="{StaticResource Fire}"
+            ContentTemplate="{DataTemplate views:GanttPage}"/>
     </FlyoutItem>
-    <FlyoutItem Title="Silber" FlyoutIcon="{StaticResource IconTwo}">
+    <FlyoutItem Title="Silber" FlyoutIcon="{StaticResource MedalSilver}">
         <Tab Title="Brandeinsatz" Icon="{StaticResource Fire}">
             <ShellContent
-                Title="Brandeinsatz"
-                ContentTemplate="{DataTemplate views:GanttPage}"
-                Route="gantt?scenario=BrandeinsatzSilber"/>
+                Icon="{StaticResource Gantt}"
+                Title="Ablauf">
+                <ShellContent.ContentTemplate>
+                    <DataTemplate>
+                        <views:GanttPage BindingContext="{Binding BrandeinsatzSilber}"/>
+                    </DataTemplate>
+                </ShellContent.ContentTemplate>
+            </ShellContent>
+            <ShellContent
+                Title="Fehlerpunkte"
+                Icon="{StaticResource Bomb}"
+                ContentTemplate="{DataTemplate views:MistakesPage}"/>
         </Tab>
         <Tab Title="Hilfeleistung" Icon="{StaticResource CarCrash}">
             <ShellContent
-                Title="Hilfeleistung"
-                ContentTemplate="{DataTemplate views:GanttPage}"
-                Route="gantt?scenario=HilfeleistungSilber"/>
+                Icon="{StaticResource Gantt}"
+                Title="Ablauf">
+                <ShellContent.ContentTemplate>
+                    <DataTemplate>
+                        <views:GanttPage BindingContext="{Binding HilfeleistungSilber}"/>
+                    </DataTemplate>
+                </ShellContent.ContentTemplate>
+            </ShellContent>
+            <ShellContent
+                Title="Fehlerpunkte"
+                Icon="{StaticResource Bomb}"
+                ContentTemplate="{DataTemplate views:MistakesPage}"/>
         </Tab>
     </FlyoutItem>
-    <FlyoutItem Title="Gold" FlyoutIcon="{StaticResource IconTwo}">
+    <FlyoutItem Title="Gold" FlyoutIcon="{StaticResource MedalGold}">
         <Tab Title="Brandeinsatz" Icon="{StaticResource Fire}">
             <ShellContent
-                Title="Brandeinsatz"
-                ContentTemplate="{DataTemplate views:LevelStartPage}"
-                Route="levelstart?level=Gold"/>
+                Icon="{StaticResource Gantt}"
+                Title="Ablauf">
+                <ShellContent.ContentTemplate>
+                    <DataTemplate>
+                        <views:GanttPage BindingContext="{Binding BrandeinsatzGold}"/>
+                    </DataTemplate>
+                </ShellContent.ContentTemplate>
+            </ShellContent>
+            <ShellContent Title="Fehlerpunkte" Icon="{StaticResource Bomb}" ContentTemplate="{DataTemplate views:MistakesPage}"/>
         </Tab>
         <Tab Title="Hilfeleistung" Icon="{StaticResource CarCrash}">
             <ShellContent
-                Title="Hilfeleistung"
-                ContentTemplate="{DataTemplate views:LevelStartPage}"
-                Route="levelstart?level=Gold"/>
+                Icon="{StaticResource Gantt}"
+                Title="Ablauf">
+                <ShellContent.ContentTemplate>
+                    <DataTemplate>
+                        <views:GanttPage BindingContext="{Binding HilfeleistungGold}"/>
+                    </DataTemplate>
+                </ShellContent.ContentTemplate>
+            </ShellContent>
+            <ShellContent Title="Fehlerpunkte" Icon="{StaticResource Bomb}" ContentTemplate="{DataTemplate views:MistakesPage}"/>
         </Tab>
         <Tab Title="Theorie" Icon="{StaticResource Brain}">
             <ShellContent
-                Title="Theorie"
+                Title="Statistik"
+                Icon="{StaticResource Chart}"
+                ContentTemplate="{DataTemplate views:StatisticsPage}"
+                Route="statistik"/>
+            <ShellContent
+                Icon="{StaticResource Chart}"
+                Title="Training"
+                ContentTemplate="{DataTemplate views:TrainingPage}"
+                Route="training"/>
+            <ShellContent
+                Icon="{StaticResource Questionaire}"
+                Title="Quiz"
                 ContentTemplate="{DataTemplate views:QuizPage}"
                 Route="quiz"/>
         </Tab>
     </FlyoutItem>
+    <ShellContent
+        Title="Über"
+        Icon="{StaticResource About}"/>
+    <ShellContent
+        Title="Einstllungen"
+        Icon="{StaticResource Gear}"
+        ContentTemplate="{DataTemplate views:SettingsPage}"/>
     <!--<ShellContent Title="Start" ContentTemplate="{DataTemplate views:MainPage}"/>-->
     <!--<FlyoutItem Title="Silber" Route="silver">
         <ShellContent Title="Home"

@@ -2,6 +2,7 @@ using LazApp.Base.ViewModels;
 
 namespace LazApp.Views;
 
+[QueryProperty(nameof(Scenario), "scenario")]
 [QueryProperty(nameof(TimeLine), "timeline")]
 [QueryProperty(nameof(QuestName), "questname")]
 public partial class QuestPage : ContentPage
@@ -11,14 +12,15 @@ public partial class QuestPage : ContentPage
     public QuestPage(ScenarioService scenarioService)
 	{
 		this.scenarioService = scenarioService;
-        Loaded += QuestPage_Loaded;
 		InitializeComponent();
 	}
 
-    private void QuestPage_Loaded(object? sender, EventArgs e)
+    protected override void OnNavigatedTo(NavigatedToEventArgs args)
     {
-        BindingContext = scenarioService.Scenario[TimeLine][QuestName];
+        BindingContext = scenarioService[Scenario][TimeLine][QuestName];
     }
+
+    public string Scenario { get; set; }
 
     public string TimeLine { get; set; }
 

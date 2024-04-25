@@ -18,7 +18,7 @@
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="vm:MistakeViewModel">
                         <FlexLayout JustifyContent="Start">
-                            <Border Background="Red" HeightRequest="36" WidthRequest="36" Margin="2" StrokeThickness="0" StrokeShape="Ellipse">
+                            <Border Background="Red" HeightRequest="32" WidthRequest="32" Margin="2" StrokeThickness="0" StrokeShape="Ellipse">
                                 <Label Text="{Binding PointsMulti}" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" TextColor="White"/>
                             </Border>
                             <Label Text="{Binding Description}" VerticalOptions="Center" Margin="2"/>

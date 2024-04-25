@@ -7,15 +7,19 @@ namespace LazApp.Base.ViewModels;
 public class TimeLineViewModel : ViewModelBase
 {
     private readonly TimeLine timeLine;
+    private readonly Scenario scenario;
 
-    public TimeLineViewModel(TimeLine timeLine)
+    public TimeLineViewModel(TimeLine timeLine, Scenario scenario)
     {
         this.timeLine = timeLine;
+        this.scenario = scenario;
         Quests = timeLine.Quests.Select(q => new QuestViewModel(q, Name)).ToList();
         Mistakes = timeLine.Mistakes.Select(m => new MistakeViewModel(m)).ToList();
     }
 
     public string Name => timeLine.Name;
+
+    public string ScenarioName => scenario.Name;
 
     public List<QuestViewModel> Quests { get; }
 

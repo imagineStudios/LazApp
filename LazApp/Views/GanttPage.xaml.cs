@@ -1,32 +1,19 @@
-using LazApp.Base.ViewModels;
-
 namespace LazApp.Views;
 
-[QueryProperty(nameof(ScenarioName), "scenario")]
 public partial class GanttPage : ContentPage
 {
-    private readonly ScenarioService scenarioService;
-
-    public GanttPage(ScenarioService scenarioService)
+    public GanttPage()
     {
-        this.scenarioService = scenarioService;
         InitializeComponent();
     }
 
-    public string ScenarioName
+    protected override void OnNavigatedTo(NavigatedToEventArgs args)
     {
-        set
-        {
-            scenarioService.ScenarioName = value;
-            BindingContext = scenarioService.Scenario;
-        }
+        base.OnNavigatedTo(args);
     }
 
-    private async void Quest_Clicked(object sender, EventArgs e)
+    protected override void OnBindingContextChanged()
     {
-        if (sender is Element fe && fe.BindingContext is QuestViewModel qvm)
-        {
-            await Shell.Current.GoToAsync($"quest?questname={qvm.Name}&timeline={qvm.Timeline}");
-        }
+        base.OnBindingContextChanged();
     }
 }

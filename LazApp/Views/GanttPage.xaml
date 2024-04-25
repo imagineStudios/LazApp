@@ -13,7 +13,15 @@
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <CollectionView ItemsSource="{Binding TimeLines}">
+        <VerticalStackLayout>
+            <Image Source="at.png" HeightRequest="100"/>
+            <Image Source="wt.png" HeightRequest="100"/>
+            <Image Source="st.png" HeightRequest="100"/>
+            <Image Source="me.png" HeightRequest="100"/>
+            <Image Source="ma.png" HeightRequest="100"/>
+            <Image Source="gf.png" HeightRequest="100"/>
+        </VerticalStackLayout>
+        <!--<CollectionView ItemsSource="{Binding TimeLines}">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <Border HeightRequest="100" WidthRequest="70" Padding="10">
@@ -21,12 +29,12 @@
                     </Border>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
-        </CollectionView>
-        <base:PinchToZoomContainer Grid.Column="1" >
-            <CollectionView ItemsSource="{Binding TimeLines}" ScaleX="1">
+        </CollectionView>-->
+        <!--<ScrollView Grid.Column="2" HorizontalScrollBarVisibility="Always">-->
+            <CollectionView ItemsSource="{Binding TimeLines}" Grid.Column="2" >
                 <CollectionView.ItemTemplate>
                     <DataTemplate x:DataType="vm:TimeLineViewModel">
-                        <views:TimeLineView HeightRequest="100"/>
+                        <views:TimeLineView HeightRequest="100" MyScaleX="10"/>
                         <!--<CollectionView ItemsSource="{Binding Quests}" ItemsLayout="HorizontalList" HeightRequest="100">
                             <CollectionView.ItemTemplate>
                                 <DataTemplate x:DataType="vm:QuestViewModel">
@@ -64,15 +72,15 @@
                                                     CornerRadius="0" Clicked="Quest_Clicked"/>
 
 
-                                            --><!--<Border Grid.Row="1" StrokeThickness="0" Padding="0.5" WidthRequest="100">
+                                            <Border Grid.Row="1" StrokeThickness="0" Padding="0.5" WidthRequest="100">
                                                
                                                 <Grid>
                                                     <Border Background="#203040" StrokeThickness="0">
                                                         <Label Text="{Binding Name}" TextColor="White" HorizontalOptions="Center" VerticalOptions="Center"/>
                                                     </Border>
                                                 </Grid>
-                                            </Border>-->
-                                            <!--<CollectionView Grid.Row="2" ItemsLayout="HorizontalList" ItemsSource="{Binding Mistakes}" HorizontalOptions="Start">
+                                            </Border>
+                                            <CollectionView Grid.Row="2" ItemsLayout="HorizontalList" ItemsSource="{Binding Mistakes}" HorizontalOptions="Start">
                                             <CollectionView.ItemTemplate>
                                                 <DataTemplate x:DataType="vm:MistakeViewModel">
                                                     <Border Background="DarkRed" HeightRequest="24" WidthRequest="24" Margin="2">
@@ -80,7 +88,7 @@
                                                     </Border>
                                                 </DataTemplate>
                                             </CollectionView.ItemTemplate>
-                                        </CollectionView>--><!--
+                                        </CollectionView>
                                         </Grid>
                                     </Border>
                                 </DataTemplate>
@@ -89,6 +97,6 @@
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
-        </base:PinchToZoomContainer>
+        <!--</ScrollView>-->
     </Grid>
 </ContentPage>

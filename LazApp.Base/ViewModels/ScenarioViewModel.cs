@@ -12,7 +12,7 @@ public class ScenarioViewModel : ViewModelBase
     {
         this.scenario = scenario;
         Mistakes = scenario.Mistakes.Select(m => new MistakeViewModel(m)).ToList();
-        TimeLines = this.scenario.TimeLines.Select(tl => new TimeLineViewModel(tl)).ToList();
+        TimeLines = this.scenario.TimeLines.Select(tl => new TimeLineViewModel(tl, scenario)).ToList();
         TimeLines.ForEach(t => t.Init(TimeLines));
     }
 

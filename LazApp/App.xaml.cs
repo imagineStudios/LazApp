@@ -2,11 +2,10 @@
 {
     public partial class App : Application
     {
-        public App()
+        public App(ScenarioService scenarioService)
         {
             InitializeComponent();
-
-            MainPage = new AppShell();
+            MainPage = new AppShell(scenarioService);
         }
     }
 }

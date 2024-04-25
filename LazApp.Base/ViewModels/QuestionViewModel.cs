@@ -12,8 +12,9 @@ public class QuestionViewModel(Question question) : ViewModelBase
 
     public List<AnswerViewModel> Answers { get; } = question.Answers.Select(a => new AnswerViewModel(a)).ToList();
 
-    public void Check()
+    public bool Check()
     {
         Answers.ForEach(a => a.Check());
+        return Answers.All(a => a.AnsweredCorrectly ?? false);
     }
 }
