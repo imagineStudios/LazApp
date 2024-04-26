@@ -1,5 +1,5 @@
 using LazApp.Base.Models;
-using LazApp.Base.ViewModels;
+using LazApp.ViewModels;
 
 namespace LazApp.Views;
 

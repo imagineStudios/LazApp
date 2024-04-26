@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LazApp.Views.SettingsCell">
+    <Frame BindingContext="{x:Reference this}">
+        <!--<Border MinimumHeightRequest="50" Background="#10FFFFFF" StrokeThickness="0.25" Stroke="#80000000">
+        <Grid Padding="20,10">
+            <Image Source="{FontImage FontFamily=FontAwesome6, Color=White, Glyph=&#xf1e2;, Size=24}" HeightRequest="24" HorizontalOptions="Start" Margin="10,0"/>
+            <VerticalStackLayout Margin="50,0,0,0">
+                <Label FontAttributes="Bold" FontSize="Caption" Text="Parameter"/>
+                <Label FontSize="Caption" Text="Parameter"/>
+            </VerticalStackLayout>
+            <ContentPresenter HorizontalOptions="End"/>
+        </Grid>
+        </Border> -->
+    </Frame>
+</ContentView>

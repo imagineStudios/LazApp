@@ -1,4 +1,4 @@
-﻿using LazApp.Base.ViewModels;
+﻿using LazApp.ViewModels;
 using LazApp.Views;
 
 namespace LazApp
@@ -18,13 +18,15 @@ namespace LazApp
             Routing.RegisterRoute("quiz", typeof(QuizPage));
         }
 
-        public ScenarioViewModel BrandeinsatzSilber => scenarioService["BrandeinsatzSilber"];
+        public GanttPageViewModel BrandeinsatzBronze => new GanttPageViewModel(scenarioService["BrandeinsatzSilber"]);
 
-        public ScenarioViewModel HilfeleistungSilber => scenarioService["HilfeleistungSilber"];
+        public GanttPageViewModel BrandeinsatzSilber => new GanttPageViewModel(scenarioService["BrandeinsatzSilber"]);
 
-        public ScenarioViewModel BrandeinsatzGold => scenarioService["BrandeinsatzSilber"];
+        public GanttPageViewModel HilfeleistungSilber => new GanttPageViewModel(scenarioService["HilfeleistungSilber"]);
 
-        public ScenarioViewModel HilfeleistungGold => scenarioService["HilfeleistungSilber"];
+        public GanttPageViewModel BrandeinsatzGold => new GanttPageViewModel(scenarioService["BrandeinsatzSilber"]);
+
+        public GanttPageViewModel HilfeleistungGold => new GanttPageViewModel(scenarioService["HilfeleistungSilber"]);
 
         protected override void OnNavigating(ShellNavigatingEventArgs args)
         {

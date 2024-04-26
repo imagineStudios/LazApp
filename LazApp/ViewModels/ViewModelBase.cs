@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace LazApp.Base.ViewModels;
+namespace LazApp.ViewModels;
 
 public abstract class ViewModelBase : INotifyPropertyChanged
 {

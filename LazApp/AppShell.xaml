@@ -8,15 +8,26 @@
     x:DataType="local:AppShell"
     Title="LazApp">
     <FlyoutItem Title="Bronze" FlyoutIcon="{StaticResource MedalBronze}">
-        <ShellContent
-            Title="Brandeinsatz"
-            Icon="{StaticResource Fire}"
-            ContentTemplate="{DataTemplate views:GanttPage}"/>
+        <Tab Title="Brandeinsatz" Icon="{AppThemeBinding Light={StaticResource FireLight}, Dark={StaticResource FireDark}}">
+            <ShellContent
+                Icon="{AppThemeBinding Light={StaticResource GanttLight}, Dark={StaticResource GanttDark}}"
+                Title="Ablauf">
+                <ShellContent.ContentTemplate>
+                    <DataTemplate>
+                        <views:GanttPage BindingContext="{Binding BrandeinsatzBronze}"/>
+                    </DataTemplate>
+                </ShellContent.ContentTemplate>
+            </ShellContent>
+            <ShellContent
+                Title="Fehlerpunkte"
+                Icon="{AppThemeBinding Light={StaticResource BombLight}, Dark={StaticResource BombDark}}"
+                ContentTemplate="{DataTemplate views:MistakesPage}"/>
+        </Tab>
     </FlyoutItem>
     <FlyoutItem Title="Silber" FlyoutIcon="{StaticResource MedalSilver}">
-        <Tab Title="Brandeinsatz" Icon="{StaticResource Fire}">
+        <Tab Title="Brandeinsatz" Icon="{AppThemeBinding Light={StaticResource FireLight}, Dark={StaticResource FireDark}}">
             <ShellContent
-                Icon="{StaticResource Gantt}"
+                Icon="{AppThemeBinding Light={StaticResource GanttLight}, Dark={StaticResource GanttDark}}"
                 Title="Ablauf">
                 <ShellContent.ContentTemplate>
                     <DataTemplate>
@@ -26,12 +37,12 @@
             </ShellContent>
             <ShellContent
                 Title="Fehlerpunkte"
-                Icon="{StaticResource Bomb}"
+                Icon="{AppThemeBinding Light={StaticResource BombLight}, Dark={StaticResource BombDark}}"
                 ContentTemplate="{DataTemplate views:MistakesPage}"/>
         </Tab>
-        <Tab Title="Hilfeleistung" Icon="{StaticResource CarCrash}">
+        <Tab Title="Hilfeleistung" Icon="{AppThemeBinding Light={StaticResource CarCrashLight}, Dark={StaticResource CarCrashDark}}">
             <ShellContent
-                Icon="{StaticResource Gantt}"
+                Icon="{AppThemeBinding Light={StaticResource GanttLight}, Dark={StaticResource GanttDark}}"
                 Title="Ablauf">
                 <ShellContent.ContentTemplate>
                     <DataTemplate>
@@ -41,14 +52,14 @@
             </ShellContent>
             <ShellContent
                 Title="Fehlerpunkte"
-                Icon="{StaticResource Bomb}"
+                Icon="{AppThemeBinding Light={StaticResource BombLight}, Dark={StaticResource BombDark}}"
                 ContentTemplate="{DataTemplate views:MistakesPage}"/>
         </Tab>
     </FlyoutItem>
     <FlyoutItem Title="Gold" FlyoutIcon="{StaticResource MedalGold}">
-        <Tab Title="Brandeinsatz" Icon="{StaticResource Fire}">
+        <Tab Title="Brandeinsatz" Icon="{AppThemeBinding Light={StaticResource FireLight}, Dark={StaticResource FireDark}}">
             <ShellContent
-                Icon="{StaticResource Gantt}"
+                Icon="{AppThemeBinding Light={StaticResource GanttLight}, Dark={StaticResource GanttDark}}"
                 Title="Ablauf">
                 <ShellContent.ContentTemplate>
                     <DataTemplate>
@@ -56,11 +67,14 @@
                     </DataTemplate>
                 </ShellContent.ContentTemplate>
             </ShellContent>
-            <ShellContent Title="Fehlerpunkte" Icon="{StaticResource Bomb}" ContentTemplate="{DataTemplate views:MistakesPage}"/>
-        </Tab>
-        <Tab Title="Hilfeleistung" Icon="{StaticResource CarCrash}">
             <ShellContent
-                Icon="{StaticResource Gantt}"
+                Title="Fehlerpunkte"
+                Icon="{AppThemeBinding Light={StaticResource BombLight}, Dark={StaticResource BombDark}}"
+                ContentTemplate="{DataTemplate views:MistakesPage}"/>
+        </Tab>
+        <Tab Title="Hilfeleistung" Icon="{AppThemeBinding Light={StaticResource CarCrashLight}, Dark={StaticResource CarCrashDark}}">
+            <ShellContent
+                Icon="{AppThemeBinding Light={StaticResource GanttLight}, Dark={StaticResource GanttDark}}"
                 Title="Ablauf">
                 <ShellContent.ContentTemplate>
                     <DataTemplate>
@@ -68,21 +82,24 @@
                     </DataTemplate>
                 </ShellContent.ContentTemplate>
             </ShellContent>
-            <ShellContent Title="Fehlerpunkte" Icon="{StaticResource Bomb}" ContentTemplate="{DataTemplate views:MistakesPage}"/>
+            <ShellContent
+                Title="Fehlerpunkte"
+                Icon="{AppThemeBinding Light={StaticResource BombLight}, Dark={StaticResource BombDark}}"
+                ContentTemplate="{DataTemplate views:MistakesPage}"/>
         </Tab>
-        <Tab Title="Theorie" Icon="{StaticResource Brain}">
+        <Tab Title="Theorie" Icon="{AppThemeBinding Light={StaticResource BrainLight}, Dark={StaticResource BrainDark}}">
             <ShellContent
                 Title="Statistik"
-                Icon="{StaticResource Chart}"
+                Icon="{AppThemeBinding Light={StaticResource ChartLight}, Dark={StaticResource ChartDark}}"
                 ContentTemplate="{DataTemplate views:StatisticsPage}"
                 Route="statistik"/>
             <ShellContent
-                Icon="{StaticResource Chart}"
+                Icon="{AppThemeBinding Light={StaticResource ChartLight}, Dark={StaticResource ChartDark}}"
                 Title="Training"
                 ContentTemplate="{DataTemplate views:TrainingPage}"
                 Route="training"/>
             <ShellContent
-                Icon="{StaticResource Questionaire}"
+                Icon="{AppThemeBinding Light={StaticResource QuestionaireLight}, Dark={StaticResource QuestionaireDark}}"
                 Title="Quiz"
                 ContentTemplate="{DataTemplate views:QuizPage}"
                 Route="quiz"/>
@@ -90,33 +107,9 @@
     </FlyoutItem>
     <ShellContent
         Title="Über"
-        Icon="{StaticResource About}"/>
+        Icon="{AppThemeBinding Light={StaticResource AboutLight}, Dark={StaticResource AboutDark}}"/>
     <ShellContent
         Title="Einstllungen"
-        Icon="{StaticResource Gear}"
+        Icon="{AppThemeBinding Light={StaticResource GearLight}, Dark={StaticResource GearDark}}"
         ContentTemplate="{DataTemplate views:SettingsPage}"/>
-    <!--<ShellContent Title="Start" ContentTemplate="{DataTemplate views:MainPage}"/>-->
-    <!--<FlyoutItem Title="Silber" Route="silver">
-        <ShellContent Title="Home"
-                ContentTemplate="{DataTemplate views:GanttPage}"
-                Route="MainPage1" />
-        <ShellContent Title="Home2"
-                ContentTemplate="{DataTemplate views:MainPage}"
-                Route="MainPage2" />
-    </FlyoutItem>
-    <FlyoutItem Title="About">
-        <ShellContent
-            ContentTemplate="{DataTemplate views:SettingsPage}"
-            Route="settings"/>
-    </FlyoutItem>-->
-    <!--<FlyoutItem Route="animals">
-        <ShellContent 
-            Title="Home2"
-            ContentTemplate="{DataTemplate views:MainPage}"
-            Route="MainPage" />
-    </FlyoutItem>
-    <ShellContent 
-        Title="About"
-        ContentTemplate="{DataTemplate views:MainPage}"
-        Route="MainPage" />-->
 </Shell>

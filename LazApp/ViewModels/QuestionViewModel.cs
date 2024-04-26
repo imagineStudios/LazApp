@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace LazApp.Base.ViewModels;
+namespace LazApp.ViewModels;
 
 public class QuestionViewModel(Question question) : ViewModelBase
 {

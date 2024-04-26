@@ -6,14 +6,4 @@ public partial class GanttPage : ContentPage
     {
         InitializeComponent();
     }
-
-    protected override void OnNavigatedTo(NavigatedToEventArgs args)
-    {
-        base.OnNavigatedTo(args);
-    }
-
-    protected override void OnBindingContextChanged()
-    {
-        base.OnBindingContextChanged();
-    }
 }

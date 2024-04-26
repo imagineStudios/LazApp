@@ -2,9 +2,10 @@
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using LazApp.Base;
 using LazApp.Base.Models;
 
-namespace LazApp.Base.ViewModels;
+namespace LazApp.ViewModels;
 
 public class QuizViewModel : INotifyPropertyChanged
 {

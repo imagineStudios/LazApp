@@ -1,8 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using LazApp.Base.Models;
+﻿using LazApp.Base.Models;
 
-namespace LazApp.Base.ViewModels;
+namespace LazApp.ViewModels;
 
 public class ScenarioViewModel : ViewModelBase
 {
@@ -23,4 +21,6 @@ public class ScenarioViewModel : ViewModelBase
     public List<TimeLineViewModel> TimeLines { get; set; }
 
     public TimeLineViewModel this[string name] => TimeLines.SingleOrDefault(t => t.Name == name);
+
+    public int Duration => 480;
 }

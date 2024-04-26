@@ -2,7 +2,7 @@
 using LazApp.Models;
 using System.Collections.ObjectModel;
 
-namespace LazApp.Base.ViewModels;
+namespace LazApp.ViewModels;
 
 public class StatisticsViewModel : ViewModelBase
 {

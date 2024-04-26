@@ -1,5 +1,5 @@
 ﻿using LazApp.Base.Models;
-using LazApp.Base.ViewModels;
+using LazApp.ViewModels;
 
 namespace LazApp
 {
@@ -9,20 +9,5 @@ namespace LazApp
         private string scenarioName = string.Empty;
 
         public ScenarioViewModel? this[string scenario] => new ScenarioViewModel(assetService[scenario]);
-
-        //public string ScenarioName
-        //{
-        //    get => scenarioName;
-        //    set
-        //    {
-        //        scenarioName = value;
-        //        Scenario = assetService[scenarioName] is Scenario s
-        //               ? new ScenarioViewModel(s)
-        //               : null;
-        //    }
-        //}
-
-
-        //public ScenarioViewModel? Scenario { get; private set; }
     }
 }

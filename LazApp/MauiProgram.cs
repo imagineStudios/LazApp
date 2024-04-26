@@ -1,10 +1,9 @@
-﻿using AiForms.Settings;
+﻿using CommunityToolkit.Maui;
 using LazApp.Base.Models;
-using LazApp.Base.ViewModels;
 using LazApp.Models;
+using LazApp.ViewModels;
 using LazApp.Views;
 using Microsoft.Extensions.Logging;
-using Microsoft.Maui.LifecycleEvents;
 
 namespace LazApp;
 
@@ -15,29 +14,13 @@ public static class MauiProgram
         var builder = MauiApp.CreateBuilder();
         builder
             .UseMauiApp<App>()
-            //.ConfigureMauiHandlers(handlers =>
-            //{
-            //    handlers.AddSettingsViewHandler();
-            //})
+            .UseMauiCommunityToolkit()
             .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 fonts.AddFont("fa_solid.ttf", "FontAwesome");
                 fonts.AddFont("Font Awesome 6 Free-Solid-900.otf", "FontAwesome6");
-            })
-            .ConfigureLifecycleEvents(events =>
-            {
-#if WINDOWS10_0_17763_0_OR_GREATER
-                //events.AddWindows(wndLifeCycleBuilder =>
-                //{
-                //    wndLifeCycleBuilder.OnWindowCreated(window =>
-                //    {
-                //        // *** For Mica or Acrylic support ** //
-                //        window.TryMicaOrAcrylic();
-                //    });
-                //});
-#endif
             });
 
         builder.Services.AddSingleton(new AssetService<Scenario>("HilfeleistungSilber.json|BrandeinsatzSilber.json"));

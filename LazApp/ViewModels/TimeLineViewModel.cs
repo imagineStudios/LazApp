@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace LazApp.Base.ViewModels;
+namespace LazApp.ViewModels;
 
 public class TimeLineViewModel : ViewModelBase
 {
@@ -13,7 +13,7 @@ public class TimeLineViewModel : ViewModelBase
     {
         this.timeLine = timeLine;
         this.scenario = scenario;
-        Quests = timeLine.Quests.Select(q => new QuestViewModel(q, Name)).ToList();
+        Quests = timeLine.Quests.Select(q => new QuestViewModel(q, this)).ToList();
         Mistakes = timeLine.Mistakes.Select(m => new MistakeViewModel(m)).ToList();
     }
 

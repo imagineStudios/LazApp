@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:sv="clr-namespace:AiForms.Settings;assembly=SettingsView"
+             xmlns:views="clr-namespace:LazApp.Views"
              x:Class="LazApp.Views.SettingsPage"
              Title="Einstellungen">
     <ContentPage.Resources>
@@ -10,22 +10,117 @@
             <x:String>Einpersonen</x:String>
             <x:String>Zweipersonen</x:String>
         </x:Array>
+        <x:Array x:Key="Schneidetypen" Type="{x:Type x:String}">
+            <x:String>Hydraulisch</x:String>
+            <x:String>Elektrisch</x:String>
+            <x:String>Akkubetrieben</x:String>
+        </x:Array>
     </ContentPage.Resources>
-    <sv:SettingsView HasUnevenRows="true">
-        <sv:Section Title="Rufnamen" FooterText="Footer">
-            <sv:EntryCell Title="Feuerwehr" ValueText="{Binding Department, FallbackValue=Notzingen}" Placeholder="Feuerwehr"/>
-            <sv:EntryCell Title="Leitstelle" ValueText="{Binding Department, FallbackValue=Esslingen}" Placeholder="Leitstelle"/>
-            <sv:EntryCell Title="Rufname Fahrzeug" ValueText="{Binding Department, FallbackValue=1/40-1}" Placeholder="Funkrufname"/>
-        </sv:Section>
-    </sv:SettingsView>
-    <!--<VerticalStackLayout>
-        <HorizontalStackLayout>
-            <Label Text="Haspeltyp"/>
-            <Switch/>
-        </HorizontalStackLayout>
-        <HorizontalStackLayout>
-            <Label Text="Haspeltyp"/>
-            <Picker ItemsSource="{StaticResource Haspeltypen}" SelectedIndex="0"/>
-        </HorizontalStackLayout>
-    </VerticalStackLayout>-->
+    <ScrollView>
+        <VerticalStackLayout Padding="20,10" Spacing="10">
+            <Label Text="Namen" FontSize="Body" FontAttributes="Bold" Margin="4,10,0,0"/>
+            <Frame BackgroundColor="#10FFFFFF" BorderColor="#80000000">
+                <Grid>
+                    <Image Source="{FontImage FontFamily=FontAwesome6, Color=White, Glyph=&#xe50c;, Size=24}" HeightRequest="24" HorizontalOptions="Start" Margin="10,0"/>
+                    <VerticalStackLayout Margin="50,0,0,0">
+                        <Label FontAttributes="Bold" FontSize="Caption" Text="Feuerwehr"/>
+                        <Label FontSize="Caption" Text="Der Name der eigenen Feuerwehr"/>
+                    </VerticalStackLayout>
+                    <Entry HorizontalOptions="End" Text="Notzingen" WidthRequest="200" BackgroundColor="#10FFFFFF"/>
+                </Grid>
+            </Frame>
+            <Frame BackgroundColor="#10FFFFFF" BorderColor="#80000000">
+                <Grid>
+                    <Image Source="{FontImage FontFamily=FontAwesome6, Color=White, Glyph=&#xe4d5;, Size=24}" HeightRequest="24" HorizontalOptions="Start" Margin="10,0"/>
+                    <VerticalStackLayout Margin="50,0,0,0">
+                        <Label FontAttributes="Bold" FontSize="Caption" Text="Leitstelle"/>
+                        <Label FontSize="Caption" Text="Der Name der anzurufenden Leitstelle"/>
+                    </VerticalStackLayout>
+                    <Entry HorizontalOptions="End" Text="Esslingen" WidthRequest="200" BackgroundColor="#10FFFFFF"/>
+                </Grid>
+            </Frame>
+            <Frame BackgroundColor="#10FFFFFF" BorderColor="#80000000">
+                <Grid>
+                    <Image Source="{FontImage FontFamily=FontAwesome6, Color=White, Glyph=&#xf8ef;, Size=24}" HeightRequest="24" HorizontalOptions="Start" Margin="10,0"/>
+                    <VerticalStackLayout Margin="50,0,0,0">
+                        <Label FontAttributes="Bold" FontSize="Caption" Text="Fahrzeugkennung"/>
+                        <Label FontSize="Caption" Text="Der Funkrufname des Fahrzeugs"/>
+                    </VerticalStackLayout>
+                    <Entry HorizontalOptions="End" Text="1/44-1" WidthRequest="200" BackgroundColor="#10FFFFFF"/>
+                </Grid>
+            </Frame>
+            <Label Text="Fahrzeug" FontSize="Body" FontAttributes="Bold" Margin="4,10,0,0"/>
+            <Frame BackgroundColor="#10FFFFFF" BorderColor="#80000000">
+                <Grid>
+                    <Image Source="{FontImage FontFamily=FontAwesome6, Color=White, Glyph=&#xf043;, Size=24}" HeightRequest="24" HorizontalOptions="Start" Margin="10,0"/>
+                    <VerticalStackLayout Margin="50,0,0,0">
+                        <Label FontAttributes="Bold" FontSize="Caption" Text="Tank"/>
+                        <Label FontSize="Caption" Text="Anwählen falls das Fahrzeug über einen eingebauten Löschwassertank verfügt"/>
+                    </VerticalStackLayout>
+                    <Switch HorizontalOptions="End" WidthRequest="200" />
+                </Grid>
+            </Frame>
+            <Frame BackgroundColor="#10FFFFFF" BorderColor="#80000000">
+                <Grid>
+                    <Image Source="{FontImage FontFamily=FontAwesome6, Color=White, Glyph=&#xf863;, Size=24}" HeightRequest="24" HorizontalOptions="Start" Margin="10,0"/>
+                    <VerticalStackLayout Margin="50,0,0,0">
+                        <Label FontAttributes="Bold" FontSize="Caption" Text="Tragkraftspritze"/>
+                        <Label FontSize="Caption" Text="Anwählen falls das Fahrzeug nur über eine Tragkraftspritze verfügt"/>
+                    </VerticalStackLayout>
+                    <Switch HorizontalOptions="End" WidthRequest="200" />
+                </Grid>
+            </Frame>
+            <Frame BackgroundColor="#10FFFFFF" BorderColor="#80000000">
+                <Grid>
+                    <Image Source="{FontImage FontFamily=FontAwesome6, Color=White, Glyph=&#xf70c;, Size=24}" HeightRequest="24" HorizontalOptions="Start" Margin="10,0"/>
+                    <VerticalStackLayout Margin="50,0,0,0">
+                        <Label FontAttributes="Bold" FontSize="Caption" Text="Schnellangriffsverteiler"/>
+                        <Label FontSize="Caption" Text="Legt fest, ob die Schlauchleitung zum Verteiler vom Angriffstruff oder dem Wassertrupp verlegt wird"/>
+                    </VerticalStackLayout>
+                    <Switch HorizontalOptions="End" WidthRequest="200" />
+                </Grid>
+            </Frame>
+            <Frame BackgroundColor="#10FFFFFF" BorderColor="#80000000">
+                <Grid>
+                    <Image Source="{FontImage FontFamily=FontAwesome6, Color=White, Glyph=&#xf70c;, Size=24}" HeightRequest="24" HorizontalOptions="Start" Margin="10,0"/>
+                    <VerticalStackLayout Margin="50,0,0,0">
+                        <Label FontAttributes="Bold" FontSize="Caption" Text="Haspeltyp"/>
+                        <Label FontSize="Caption" Text="Art der Haspel, die am Fahrzeug verbaut ist."/>
+                    </VerticalStackLayout>
+                    <Picker HorizontalOptions="End" WidthRequest="200" ItemsSource="{StaticResource Haspeltypen}" SelectedIndex="0" BackgroundColor="#10FFFFFF"/>
+                </Grid>
+            </Frame>
+            <Label Text="Geräte" FontSize="Body" FontAttributes="Bold" Margin="4,10,0,0"/>
+            <Frame BackgroundColor="#10FFFFFF" BorderColor="#80000000">
+                <Grid>
+                    <Image Source="{FontImage FontFamily=FontAwesome6, Color=White, Glyph=&#xf0c4;, Size=24}" HeightRequest="24" HorizontalOptions="Start" Margin="10,0"/>
+                    <VerticalStackLayout Margin="50,0,0,0">
+                        <Label FontAttributes="Bold" FontSize="Caption" Text="Schneidgerät"/>
+                        <Label FontSize="Caption" Text="Art des verlastetetn Rettungsgeräts"/>
+                    </VerticalStackLayout>
+                    <Picker HorizontalOptions="End" WidthRequest="200" ItemsSource="{StaticResource Schneidetypen}" SelectedIndex="0" BackgroundColor="#10FFFFFF"/>
+                </Grid>
+            </Frame>
+            <Frame BackgroundColor="#10FFFFFF" BorderColor="#80000000">
+                <Grid>
+                    <Image Source="{FontImage FontFamily=FontAwesome6, Color=White, Glyph=&#xf0c4;, Size=24}" HeightRequest="24" HorizontalOptions="Start" Margin="10,0"/>
+                    <VerticalStackLayout Margin="50,0,0,0">
+                        <Label FontAttributes="Bold" FontSize="Caption" Text="Stromerzeuger"/>
+                        <Label FontSize="Caption" Text="Kann der Stromerzeuger auf dem Auszug verwendet werden?"/>
+                    </VerticalStackLayout>
+                    <Switch HorizontalOptions="End" WidthRequest="200"/>
+                </Grid>
+            </Frame>
+            <Frame BackgroundColor="#10FFFFFF" BorderColor="#80000000">
+                <Grid>
+                    <Image Source="{FontImage FontFamily=FontAwesome6, Color=White, Glyph=&#xf0ad;, Size=24}" HeightRequest="24" HorizontalOptions="Start" Margin="10,0"/>
+                    <VerticalStackLayout Margin="50,0,0,0">
+                        <Label FontAttributes="Bold" FontSize="Caption" Text="Kupplungsschlüssel"/>
+                        <Label FontSize="Caption" Text="Werden zum Kuppeln der Saugschläuche Kupplungsschlüssel benötigt?"/>
+                    </VerticalStackLayout>
+                    <Switch HorizontalOptions="End" WidthRequest="200" />
+                </Grid>
+            </Frame>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

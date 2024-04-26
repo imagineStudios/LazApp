@@ -1,7 +1,7 @@
 ﻿using LazApp.Base.Models;
 using LazApp.Models;
 
-namespace LazApp.Base.ViewModels;
+namespace LazApp.ViewModels;
 
 public class QuestionStatisticsViewModel
 {

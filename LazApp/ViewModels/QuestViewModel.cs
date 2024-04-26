@@ -1,14 +1,13 @@
-﻿using LazApp.Base.Models;
-using System.Collections.Generic;
-using System.Linq;
+﻿using LazApp.Base;
+using LazApp.Base.Models;
 
-namespace LazApp.Base.ViewModels;
+namespace LazApp.ViewModels;
 
-public class QuestViewModel(Quest quest, string timeline) : ViewModelBase 
+public class QuestViewModel(Quest quest, TimeLineViewModel timeline) : ViewModelBase 
 {
     private readonly Quest quest = quest;
 
-    public string Timeline { get; } = timeline;
+    public TimeLineViewModel Timeline { get; } = timeline;
 
     public string? Name => quest.Name;
 
