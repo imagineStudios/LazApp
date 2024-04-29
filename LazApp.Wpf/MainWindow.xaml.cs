@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using LazApp.Base.ViewModels;
+using LazApp.ViewModels;
 
 namespace LazApp.Wpf
 {

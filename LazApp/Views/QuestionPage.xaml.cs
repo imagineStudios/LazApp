@@ -1,8 +1,8 @@
 namespace LazApp.Views;
 
-public partial class QuestionPage : ContentPage
+public partial class QuestionView : ContentView
 {
-    public QuestionPage()
+    public QuestionView()
 	{
 		InitializeComponent();
 	}

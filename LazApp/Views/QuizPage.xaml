@@ -11,7 +11,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <views:QuestionPage BindingContext="{Binding CurrentQuestion}"/>
+        <views:QuestionView BindingContext="{Binding CurrentQuestion}"/>
         <Border Background="#202040" Grid.Row="1" StrokeThickness="0">
             <HorizontalStackLayout Margin="20" Spacing="10">
                 <Button Command="{Binding CheckQuestionCommand}" Text="Check Answer"/>

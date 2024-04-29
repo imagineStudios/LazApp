@@ -7,7 +7,7 @@
              x:DataType="vm:TrainingViewModel"
              Title="Training">
     <Grid>
-        <views:QuestionPage BindingContext="{Binding CurrentQuestion}"/>
+        <views:QuestionView BindingContext="{Binding CurrentQuestion}"/>
         <Button Command="{Binding CheckCommand}" Text="Prüfen" HorizontalOptions="End" VerticalOptions="End" Margin="20"
                 IsVisible="{Binding IsNotChecked}"/>
         <Button Command="{Binding NextCommand}" Text="Weiter" HorizontalOptions="End" VerticalOptions="End" Margin="20"
